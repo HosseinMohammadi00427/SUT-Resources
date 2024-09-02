@@ -1,0 +1,1 @@
+I’m excited to share a comprehensive collection of my academic resources with you. Over time, I’ve compiled various materials, insights, and guides that I believe will be incredibly useful for bachelor's students.
