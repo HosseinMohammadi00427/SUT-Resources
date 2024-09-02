@@ -1,0 +1,123 @@
+
+\documentclass[12pt]{article}
+\parindent 0mm
+\usepackage[a4paper,
+bindingoffset=0.2in,
+left=1in,
+right=1in,
+top=0.5in,
+bottom=0.8in,
+footskip=.25in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,diagbox,physics, amsfonts, fixmath, tikz, pgf, multirow, hyperref, amsfonts, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+
+\usepackage{xepersian}
+\settextfont[]{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+	
+	\newenvironment{exercise}[3][\unskip]{%
+	\par
+	\noindent
+	\textbf{
+		 #1
+		 [#2 امتیاز] 
+		 \def\temp{#3}\ifx\temp\empty
+		 : 
+		 \else
+		 : #3 \vspace{0.5em} \\
+		 \fi
+		}}{}
+
+\begin{document}
+
+	
+	\title{آزمونک چهارم - درس نظریه‌ گروه‌ها
+		\\
+	{\normalsize 
+	\textbf{استاد درس:}
+	دکتر رضاخانی
+	}
+	}
+	\author{
+	\small
+	\textbf{دستیارهای درس:}
+	 حسین محمدی، زهرا کبیری
+	} 
+\date{۳۱ اردیبهشت‌ماه سال ۱۴۰۳}
+	\maketitle
+	سوال‌های زیر با هدف مرور مفاهیم اولیه گروه‌های ماتریسی طراحی شده‌است.
+	
+	از بین دو سوال زیر یکی را به دلخواه انتخاب و حل کنید.
+
+\vspace{0.4em}
+\par\noindent\rule{\textwidth}{0.4pt}
+
+\vspace{0.4em}
+\noindent
+	\textbf{ سوال (۱):}
+$G$ را گروه ماتریسی 
+زیر بگیرید.
+\[
+G = \Biggl\{
+\begin{pmatrix}
+	a&b\\c&d
+\end{pmatrix} \; \Big| \; a,b,c,d \in \mathbb{Z}
+\Biggr\}
+\]
+عملِ گروه هم جمع اعداد صحیح است. زیرگروه $H$ را متشکل از ماتریس‌های 
+۲در۲ بگیرید که تمام درایه‌هایش زوج است. گروه خارج‌قسمتی 
+$G/H$
+را پیدا کنید و مرتبه‌اش را بنویسید.
+	
+
+	
+	
+\vspace{0.4em}
+	\par\noindent\rule{\textwidth}{0.4pt}
+	
+		\vspace{0.4em}
+		\noindent
+	\textbf{ سوال (۲):}
+	
+	ماتریس‌های 
+	$R \in \text{SO}(3)$
+	و 
+	$L \in \text{SL}(2,\mathbb{R})$
+	و ماتریس دلخواه 
+	$T$
+	که 
+	$3\times2$
+	است و درایه‌های حقیقی دارد، در نظر داشته باشید.
+ همچنین ماتریس 
+ $0_{2\times 3}$
+ ماتریسی است که تمام درایه‌هایش صفر است.
+ 
+ ماتریس 
+ $5 \times 5$
+ زیر را بسازید.
+ \[
+  \left[
+ \begin{array}{c|c}
+ 	R_{\small 3\times 3} & T_{\small 3\times 2}\\
+ 	\hline
+ 	0_{\small 2\times 3} & L_{\small 2\times 2}
+ \end{array}
+ \right]
+ \]	
+ آیا این ماتریس‌ها با عمل ضرب ماتریسی، تشکیل یک گروه می‌دهند؟
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

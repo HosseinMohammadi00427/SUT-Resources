@@ -1,0 +1,85 @@
+\documentclass{article}
+\usepackage[a4paper,bindingoffset=0.2in,
+            left=1in,right=1in,top=1in,bottom=1in,
+            footskip=.25in]{geometry}
+\usepackage{amsmath }
+\begin{document}
+\centering Student Name : Hossein Mohammadi \\
+\centering Student No : 96101035\\
+\centering Computational Physics Course\\
+\centering TA : Ali Farnoodi  
+\\[2cm]
+\raggedright
+In order to drive the $\sigma^{2}$ for this problem, first we know that:
+\begin{equation}
+<x(t)> = Nl(p-q)
+\end{equation}
+As it calculated in Lecture Notes of Random Walk . Next we should Find $<x^{2}(t)>$:
+
+\begin{multline*}
+\begin{split}
+ <x^{2} (t) > = \left<l\left(\sum\limits_{i=1}^N a_{i}\right) l\left(\sum\limits_{j=1}^N a_{j}\right)\right>  
+&=l^{2} \left<\sum\limits_{i=1}^N\sum\limits_{j\neq i}^N a_{i}a_{j}  + \sum\limits_{i=1}^N a_{i}^{2}\right> = 
+ l^{2} \left<\sum\limits_{i=1}^N\sum\limits_{j\neq i}^N a_{i}a_{j} \right>+ l^{2} \left< \sum\limits_{i=1}^N a_{i}^{2}\right> \\
+l^{2}\sum\limits_{i=1}^N\sum\limits_{j\neq i}^N <a_{i}a_{j} >  + l^{2}\sum\limits_{i=1}^N <a_{i}^{2}>
+\end{split}
+\end{multline*}
+
+Now, Since $a_{i}$ is a random variable that has values 1 and -1 with specific probablities p and q, $a_{i}^2$ is always equal to 1 and since $a_{i}$ is independent of $a_{j}$ for $i\neq j$ it's obvious
+that we can write $<a_{i}a_{j}>$ = $<a_{i}><a_{j}>$. By using this we can write:
+
+\begin{multline*}
+\begin{split}
+l^{2} \left( \sum\limits_{i=1}^N\sum\limits_{j\neq i}^N <a_{i}a_{j} >  + \sum\limits_{i=1}^N <a_{i}^{2}>\right) = 
+l^{2} \left( \sum\limits_{i=1}^N\sum\limits_{j\neq i}^N <a_{i}><a_{j} >  + \sum\limits_{i=1}^N 1 \right)
+\end{split}
+\end{multline*}
+For each i, j is summed over N-1 times (j=i is neglected) and recall that $<a_{i}> = p-q $ so we can rewrite the whole first term as:
+ 
+
+\begin{multline*}
+\begin{split}
+l^{2} \left(\sum\limits_{i=1}^N\sum\limits_{j\neq i}^N <a_{i}><a_{j} >  + \sum\limits_{i=1}^N 1\right) =
+l^{2}(N(N-1)(p-q)^{2} +N)
+\end{split}
+\end{multline*}
+So by : $\sigma^{2} = <x^2(t)> - <x(t)>^2$ , We write:
+
+
+\begin{multline*}
+\begin{split}
+\sigma^{2} =  l^{2} ( N^2 (p-q)^{2} -N(p-q)^2 + N) - N^2 l^2 (p-q)^2 =Nl^2(1-(p-q)^2) = Nl^2(1+p-q)(1-p+q)
+\end{split}
+\end{multline*}
+\\[0.5cm]
+But $p+q = 1$:
+
+\begin{multline*}
+\begin{split}
+\sigma^{2} =  Nl^2(1+p-q)(1-p+q) = Nl^2(2p)(2q) =4 Nl^2 pq
+\end{split}
+\end{multline*}
+Which is like the equation that mentioned in lecture note but with a little deiffrence: I replaced $\frac{t}{\tau }$ with N which is the number of steps. So I prove that formula for the standard variance 
+in Random Walk.
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

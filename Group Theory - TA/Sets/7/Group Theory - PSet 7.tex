@@ -1,0 +1,227 @@
+\documentclass{article}
+\usepackage[final]{neurips}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{lipsum}
+\definecolor{mycolor}{rgb}{0.122, 0.435, 0.698}
+\newmdenv[innerlinewidth=0.5pt, roundcorner=4pt,linecolor=mycolor,innerleftmargin=6pt,
+innerrightmargin=6pt,innertopmargin=6pt,innerbottommargin=6pt]{mybox}
+\usepackage[utf8]{inputenc} % allow utf-8 input
+\usepackage[T1]{fontenc}    % use 8-bit T1 fonts
+\usepackage[hidelinks]{hyperref}       % hyperlinks
+\usepackage{url}            % simple URL typesetting
+\usepackage{booktabs}       % professional-quality tables
+\usepackage{amsfonts}       % blackboard math symbols
+\usepackage{nicefrac,tcolorbox}       % compact symbols for 1/2, etc.
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{microtype}      % microtypography
+\usepackage{graphicx,caption}
+\usepackage{xepersian}
+\settextfont{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\raggedbottom
+
+
+\title{
+	\vspace{-0.8em}
+	تمرین سری هفتم درس نظریه گروه‌ها - دکتر رضاخانی
+	\\
+	{\normalsize
+		\textbf{مهلت تحویل:
+			چهار‌‌شنبه ۲ خرداد ماه سال ۱۴۰۳ تا ساعت 59:23
+			\\
+			\vspace{-0.4em}
+			از طریق سامانه
+			\href{https://cw.sharif.edu/}{درس‌افزار شریف}
+		}
+	}
+	\vspace{-0.6em}
+}
+
+\usepackage[utf8]{inputenc}
+
+\usepackage[english]{babel}
+\setlength{\parindent}{3.5em}
+\setlength{\parskip}{0.5em}
+\renewcommand{\baselinestretch}{1.0}
+
+\usepackage{calrsfs}
+\DeclareMathAlphabet{\pazocal}{OMS}{zplm}{m}{n}
+\newcommand{\La}{\mathcal{L}}
+\newcommand{\Lb}{\pazocal{L}}
+
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+
+\newenvironment{exercise}[3][\unskip]{%
+	\par
+	\noindent
+	\textbf{تمرین
+		#1
+		[#2 امتیاز] 
+		\def\temp{#3}\ifx\temp\empty
+		: 
+		\else
+		: #3 \vspace{0.5em} \\ \noindent
+		\fi
+}}{}
+
+\author{
+	حسین محمدی\\
+	\lr{
+		\href{mailto:hossein.mohammadi.00427@gmail.com}{\texttt{	hossein.mohammadi.00427@gmail.com}}} \\
+	\And
+	زهرا کبیری\\
+	\lr{
+		\href{mailto:kabiri.zahra98@gmail.com}{ \texttt{kabiri.zahra98@gmail.com}}}\\
+}
+
+\begin{document}
+	
+	
+	\begin{minipage}{0.1\textwidth}% adapt widths of minipages to your needs
+		\includegraphics[width=1.1cm]{sharif-logo.png}
+	\end{minipage}%
+	\hfill%
+	\begin{minipage}{0.9\textwidth}\raggedleft
+		دانشگاه صنعتی شریف\\
+		زمستان ۱۴۰۲ - بهار ۱۴۰۳\\
+	\end{minipage}
+	
+	\makepertitle
+	
+	
+	\begin{exercise}[29]{40}{زیرگروه ویژه‌ی لورنتز}
+		زیرمجموعه ای از
+		$O(1,3)$
+		که در زیر معرفی شده است، زیرگروه ویژه لورنتز نام دارد.
+		\[
+		O_{\uparrow}^{+}(1,3) = \{\Lambda \in O(1,3) | \det (\Lambda) = 1 , \Lambda_{00} \geq 1 \}
+		\]
+		نشان دهید که این زیرمجوعه یک زیرگروه از 
+		$O(1,3)$
+		است و همچنین این زیرگروه بهنجار است.
+		
+	\end{exercise}
+	
+	
+	\begin{exercise}[30]{30}{گروه 
+			$\text{SL}(2,\mathbb{Z})$
+		}
+		ساده‌ترین گروه گسسته، متناهی و غیرآبلی، گروه $\text{SL}(2,\mathbb{Z})$
+		است. این گروه متشکل از ماتریس‌های ۲ در ۲ با دترمینان یک است که درایه‌هایش اعداد صحیح هستند. نامِ ویژه‌ی 
+		\lr{Modular group}
+		به علت اهمیت فراوان این گروه در تبدیلات خشتی چنبره
+		\LTRfootnote{Modular trnasformations of torus}
+		داده شده است؛ بعدها که نظریه ریسمان یا نظریه میدان همدیس آشنا شدید، به این گروه و اهمیتش در فیزیک بیشتر پی‌ خواهید برد. اما چیزی که از شما می‌خواهیم خیلی ساده است:
+		
+		\noindent
+		نشان دهید که این گروه با دو عضو 
+		\[
+		S = \begin{pmatrix}
+			0 & -1 \\ 1 & 0
+		\end{pmatrix} , \qquad T =  \begin{pmatrix}
+			1 & 1 \\ 0 & 1
+		\end{pmatrix}
+		\]
+		تولید می‌شود؛ یعنی هر عضو دلخواهی از این گروه را به شکل ضرب این دو عضو بنویسید.
+		
+	\end{exercise}
+	
+	\begin{exercise}[31]{30}{}
+		یک نوسانگر هماهنگ یک بعدی داخل میدان الکتریکی 
+		$E$ 
+		در نظر بگیرید.
+		\begin{equation*}
+			H=\frac{P^2}{2m}+\frac{1}{2}m\omega ^2 x^2 - eEx
+		\end{equation*}
+		که در آن 
+		$m$
+		جرم، 
+		$\omega$ 
+		بسامد، 
+		$e$ 
+		بار الکتریکی نوسانگر است.
+		\\
+		الف) تبدیل خطی از 
+		$x$ 
+		پیدا کنید که پتانسیل 
+		$V=\frac{1}{2}m\omega ^2 x^2 - eEx$ 
+		را به 
+		$\Tilde{V}=\frac{1}{2}m\omega ^2 \Tilde{x}^2 +V_0$ 
+		برساند.\\
+		ب) نشان دهید این تبدیل یک تبدیل هم تافته 
+		\LTRfootnote{Symplectic}
+		است.\\
+		ج) دوباره به نوسانگر هماهنگ ساده بر می گردیم. فرض کنید کمیت های 
+		$m$ 
+		و 
+		$\omega$ 
+		به گونه ای است که همیلتونی آن چنین است:
+		\begin{equation*}
+			H=\frac{1}{2}(P^2+x^2)
+		\end{equation*}
+		بررسی کنید آیا تبدیل زیر یک تبدیل هم تافته است؟
+		\begin{equation*}
+			\Tilde{x}=\frac{1+i}{2}(x+iP) \quad , \quad \Tilde{P}=\frac{1+i}{2}(x-iP)
+		\end{equation*}
+	\end{exercise}
+	
+	\begin{boxes}{black}{معرفی تعمیمی از گروه‌های متعامد}
+		با گروه‌های متعامد
+		\LTRfootnote{Orthogonal groups}
+		در درس آشنا شده‌اید؛ 
+		\href{https://en.wikipedia.org/wiki/Indefinite_orthogonal_group}{تعمیمی}
+		از این گروه‌ها وجود دارند که از قضا در فیزیک این تعمیم‌ها جالب توجه هستند.
+		
+		اول دو عدد طبیعی $p$ و $q$ را در نظر بگیرید. ماتریس $g$ را که ماتریسی 
+		$(p+q) \times (p+q)$
+		است اینطور می‌سازیم: روی $p$ درایه‌ی اول قطر اصلی، عدد یک را قرار دهید و روی $q$ درایه‌ی بعدی، عدد ۱- را بگذارید؛ یعنی 
+		\[
+		g = \text{diag} (\underbrace{1,\dots,1}_{p},\underbrace{-1,\dots,-1}_{q})
+		\]
+		حالا آماده‌ایم که «گروه‌های متعامد غیرمعیّن» را تعریف کنیم
+		\footnote{منظور از 
+			$M_{p+q}(\mathbb{R})$
+			، مجموعه‌ی تمامی ماتریس‌های 
+			$(p+q) \times (p+q)$
+			است که درایه‌های آن حقیقی هستند.
+		}
+		\footnote{از خانم حانیه ملکی برای یادآوردن شدن اشکالات این بخش متشکریم.}
+		.
+		\[
+		O(p,q) = \{
+		A \in M_{p+q}(\mathbb{R}) \; \big| \; A^t g A = g 
+		\}
+		\]
+		برای یادآوری، $g$ به ازای $p=1$ و $q=3$ به متریک مینکوفسکی
+		\LTRfootnote{Minkowski}
+		تبدیل می‌شود و گروه 
+		$O(1,3)$ 
+		هم همان گروه لورنتز است. تعریف معادلِ این گروه اینطور است:  $O(p,q)$ شامل اعضایی است که ضرب برداری تعمیم‌یافته
+		\footnote{
+			منظورمان از ضرب برداری تعمیم یافته این است:
+			\[
+			\left< x,y \right> = x_1y_1 + \dots x_py_p - x_{p+1}y_{p+1} -\dots - x_{p+q} y_{p+q}
+			\]
+			که مشابه با ضرب چاربردارها از فضای میکوفسکی، با استفاده از متریک $g$ تعریف شده است.
+		}
+		با متریک $g$ را ناوردا نگه‌دارند؛ برای اطلاع بیشتر به 
+		\href{https://en.wikipedia.org/wiki/Indefinite_orthogonal_group}{این صفحه از ویکی‌پدیا}
+		مراجعه کنید.
+		\[
+		O(p,q) = \{
+		A \in M_{p+q}(\mathbb{R}) \; \big| \; \left< Ax,Ay \right> = \left< x,y \right> \;\; , \;\; \forall x,y \in \mathbb{R}^{p+q}
+		\}
+		\]
+	\end{boxes}
+	
+	
+	\vspace{1em}
+\end{document}

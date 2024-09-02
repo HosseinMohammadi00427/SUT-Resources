@@ -1,0 +1,106 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,
+bindingoffset=0.2in,
+left=1in,
+right=1in,
+top=0.5in,
+bottom=0.8in,
+footskip=.25in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,diagbox,physics, amsfonts, fixmath, tikz, pgf, multirow, hyperref, amsfonts, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+
+\usepackage{xepersian}
+\settextfont[]{XB Niloofar}
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+	
+	\newenvironment{exercise}[3][\unskip]{%
+	\par
+	\noindent
+	\textbf{
+		 #1
+		 [#2 امتیاز] 
+		 \def\temp{#3}\ifx\temp\empty
+		 : 
+		 \else
+		 : #3 \vspace{0.5em} \\
+		 \fi
+		}}{}
+
+\begin{document}
+
+	
+	\title{آزمونک اول - درس نظریه‌ گروه‌ها
+		\\
+	{\normalsize 
+	\textbf{استاد درس:}
+	دکتر رضاخانی
+	}
+	}
+	\author{
+	\small
+	\textbf{دستیارهای درس:}
+	 حسین محمدی، زهرا کبیری
+	} 
+\date{۱۴ اسفند سال ۱۴۰۲}
+	\maketitle
+	از بین دو سوال زیر، به دلخواه یکی را انتخاب و حل کنید.
+	
+	\vspace{1.5em}
+	\noindent
+	\textbf{ سوال اول:}
+ ثابت کنید اگر به ازای هر عضو 
+ $a,b \in G$
+ از گروه متناهی 
+ $G$،
+  داشته باشیم 
+  $(a.b)^2 = a^2.b^2$، آنگاه
+  گروه G آبلی است.
+	
+	\vspace{1.5em}
+	\noindent
+	\textbf{ سوال دوم:}
+	مجموعه‌ی 
+	$G$ را مجموعه‌ی ماتریس‌های
+	۲در۲، متشکل از درایه‌های صفر و یک درنظر بگیرید که دترمینان‌شان به پیمانه‌ی ۲ ناصفر است.
+	\[
+	G= \{
+	\begin{pmatrix}
+		a & b \\
+		c & d \\
+	\end{pmatrix}
+	\Big| \;a,b,c,d \in \{0,1\}
+	\;\; ,\;\; ad-bc \neq 0 \;\;(\text{mod} \; 2)
+	\}
+	\]
+	نشان دهید که تحت عمل ضرب ماتریسی (به پیمانه‌ی ۲) این مجموعه تشکیل گروه می‌دهد؛ ضمنا تمامی اعضای گروه را مشخص کنید.
+	
+
+	
+	
+	
+	
+	
+	
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

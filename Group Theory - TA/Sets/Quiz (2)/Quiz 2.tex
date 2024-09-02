@@ -1,0 +1,116 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,
+bindingoffset=0.2in,
+left=1in,
+right=1in,
+top=0.5in,
+bottom=0.8in,
+footskip=.25in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,diagbox,physics, amsfonts, fixmath, tikz, pgf, multirow, hyperref, amsfonts, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+
+\usepackage{xepersian}
+\settextfont[]{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+	
+	\newenvironment{exercise}[3][\unskip]{%
+	\par
+	\noindent
+	\textbf{
+		 #1
+		 [#2 امتیاز] 
+		 \def\temp{#3}\ifx\temp\empty
+		 : 
+		 \else
+		 : #3 \vspace{0.5em} \\
+		 \fi
+		}}{}
+
+\begin{document}
+
+	
+	\title{آزمونک دوم - درس نظریه‌ گروه‌ها
+		\\
+	{\normalsize 
+	\textbf{استاد درس:}
+	دکتر رضاخانی
+	}
+	}
+	\author{
+	\small
+	\textbf{دستیارهای درس:}
+	 حسین محمدی، زهرا کبیری
+	} 
+\date{20 فروردین ماه سال 1403}
+	\maketitle
+	سوال زیر با هدف مرور مفاهیم اولیه و با تاکید بیشتر روی هم‌مجموعه‌ها و زیرگروه‌های بهنجار طراحی شده است.
+	
+	\vspace{1.5em}
+	\noindent
+	\textbf{ سوال:}
+ گروه 
+ $D_6$  را در نظر بگیرید.
+ \[
+ D_6 = \{1,x,x^2,x^3,x^4,x^5,y,xy,x^2y,x^3y,x^4y,x^5y \;\big|\; x^6=1 \; , \; y^2=1 \;,\; yx = x^5y\}
+ \]
+ 
+ \noindent
+	الف) زیرگروه‌های از مرتبه ۲، ۳ و ۶ را مشخص کنید.
+	 
+	(راهنمایی: ۷ زیرگروه مرتبه ۲، یک زیرگروه مرتبه 3 و یک زیرگروه مرتبه ۶ داریم.)
+	
+	\noindent
+	ب) همدسته‌های چپ زیرگروه مرتبه‌ی ۳ ،$H$،را بسازید؛ مطابق  رابطه‌ی اندیس گروه می‌دانید که 
+	\[[D_6:H] = 4, \]
+ پس باید ۴ همدسته‌ی سه عضوی پیدا کنید.
+	
+\noindent
+ج) حالا همدسته‌های راست زیرگروه $H$ را بیابید. بازهم باید چهار همدسته‌ی سه عضوی پیدا کنید.
+
+\noindent
+د)تعریفی از بهنجاری برحسب همدسته‌ها وجود دارد؛ آن تعریف را به خاطر آورید و معین کنید که آیا زیرگروه $H$ در گروه $D_6$ بهنجار است؟
+
+\noindent
+ه) زیرگروه چهارعضوی 
+$I = \{1,x^3,y,x^3y\}$
+را در نظربگیرید و مراحل (ب) و (ج) و (د) را برای این زیرگروه تکرار کنید.
+
+\noindent
+و) نشان دهید ضرب همدسته‌ها با تعریف 
+\[
+xI . x^2I \overset{?}{=}(x.x^2) I = x^3 I
+\]
+	برقرار نیست. (راهنمایی: عضوی از ضرب درونی 
+	$xI . x^2I$
+	بیابید که در 
+	$x^3I$
+	نباشد.
+	)
+	
+	\noindent
+	این یکی از آزمون‌هایی است که نشان می‌دهد زیرگروه $I$ بهنجار نیست.
+	
+
+	
+	
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

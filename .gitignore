@@ -1,0 +1,40 @@
+# Ignore all .zip files :: *.zip
+*.aux
+*.log
+*.out
+*.synctex.gz
+
+# Ignore the build folder :: /build/
+
+/Quantum Mechanics II - TA/HW4/
+/Quantum Mechanics II - TA/HW5/
+/Quantum Mechanics II - TA/Misc/Quizes.xlsx
+/Quantum Mechanics II - TA/Quizes.xlsx
+
+/Optics Lab - Report/Reyhaneh/
+
+/Lab IV - TA/Students/
+
+/Group Theory - TA/Exercising Stuff/
+/Group Theory - TA/My Students.jpg
+/Group Theory - TA/Quiz + Names.xlsx
+
+/AQFT - TA/HW Grades.xlsx
+/AQFT - TA/Problem sets/paolo-pset-main/
+/AQFT - TA/Problem sets/Supplemented Materials/
+
+/Advanced Mathematical Physics - TA/Grading notes/
+/Advanced Mathematical Physics - TA/Sources/(Topo-Homo)logy + Homotopy/
+/Advanced Mathematical Physics - TA/Sources/Manifold Exercises/
+
+/Advanced Lab - Report/Source/
+/Advanced Lab - Report/**/*.docx
+/Lab III - Report/**/*.docx
+/Lab IV - Report/*/*.docx
+/Optics Lab - Report/*/*.docx
+
+# Do not ignore Sheets file.
+!/Advanced Lab - Report/Sheets/**
+
+
+# Ignore a specific folder in a subdirectory :: /subdirectory_name/folder_name/

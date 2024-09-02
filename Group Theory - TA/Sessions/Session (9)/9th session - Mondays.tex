@@ -1,0 +1,666 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[top=20mm, bottom=25mm, left=1.6in, right=1.6in,includehead=true,includefoot=true]{geometry}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{enumitem,hyperref,dsfont}
+\usepackage[linewidth= 2pt]{mdframed}
+\usepackage{colortbl}
+\usepackage{xepersian}
+\setdigitfont{XB Niloofar}
+\settextfont[]{XB Niloofar}
+\deflatinfont\enfont[Scale=1]{Times New Roman}
+
+\newcommand{\mycomment}[1]{}
+
+\newenvironment{parind}{%
+	\par%
+	\medskip
+	\leftskip=0mm\rightskip=7mm
+	\noindent\ignorespaces}{%
+	\par\medskip}
+
+\parindent 0mm
+\title{\textbf{
+  مسائلی از گروه‌های ماتریسی به‌همراه حلشان
+}}
+\author{حسین محمدی
+\\
+\small
+کلاس‌ حل‌تمرین دوشنبه 24 اردیبهشت سال 1403
+}
+\date{درس نظریه‌گروه‌ها - دکتر رضاخانی}
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+
+\begin{document}
+\maketitle
+سلام. در این مدت غیابم سعی می‌کنم برایتان مطالب آموزشی خوبی تهیه کنم. فعلا قرار است در مورد گروه‌های ماتریسی تمرین حل کنیم و با ساختار گروه‌های لیِ ماتریسی بیشتر آشنا بشویم.
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{0.5em}
+\noindent
+\textbf{سوال اول:}
+قرار دهید
+$G = \Biggl\{
+\begin{pmatrix}
+	a &0 \\ b &1 
+\end{pmatrix} \; | \; a,b\in \mathbb{R} , a>0
+\Biggr\}$.
+
+\hspace{7mm}
+الف) نشان دهید که $G$ یک گروهِ لی است.
+
+\hspace{7mm}
+ب) آیا این گروه، زیرگروهی از 
+$\text{GL}(2,\mathbb{R})$
+است
+\footnote{زیرگروهِ لی بودن با زیرگروه بودن تفاوت دارد؛ برای زیرگروهِ لی بودن، باید خود گروه $G$ به عنوان یک خمینه،‌زیرخمینه‌ای از 
+$\text{GL}(2,\mathbb{R})$
+هم باشد.}
+؟
+
+\hspace{7mm}
+ج) $\mu$ را به شکل زیر تعریف می‌کنیم:
+\[
+\mu : G \mapsto \text{GL}(2,\mathbb{R}) , \qquad
+\begin{pmatrix}
+	a &0 \\ b & 1
+\end{pmatrix} \longmapsto \begin{pmatrix}
+ a& b \\ 0 & 1
+\end{pmatrix}
+\]
+\hspace{7mm}
+ آیا یک همریختیِ گروهی بین گروه‌های لی است؟
+
+\vspace{1.5em}
+\par\noindent\rule{\textwidth}{0.6pt}
+\textbf{راه حل:}
+
+الف)
+همانطور که می‌دانید، عمل ضرب و وارون‌کردن در گروه‌های ماتریسیِ لی، باید هموار یا 
+$C^\infty$
+باشد. برای مشاهده‌ی این هموار بودن، اول این گروه را در 
+$\mathbb{R}^2$
+می‌نشانیم.
+\begin{equation*}
+	\begin{aligned}
+		\varphi &: G \longmapsto U = \{(a,b) \in \mathbb{R}^2 \;|\; a>0\} \\ \varphi &: \begin{pmatrix}
+			a & 0 \\ b& 1
+		\end{pmatrix}
+		 \longmapsto (a,b) \in U
+	\end{aligned}
+\end{equation*}
+ ضرب ماتریسی را برای دو عضو نوعی بررسی می‌کنیم:
+\begin{equation*}
+	\begin{aligned}
+		A& = \begin{pmatrix}
+			a & 0 \\ b & 1
+		\end{pmatrix} , \quad B = \begin{pmatrix}
+		a' & 0 \\ b' & 1
+		\end{pmatrix} , \qquad a,a'>0
+		\\
+		 AB &= \begin{pmatrix}
+		 	aa' & 0 \\ ba'+b' & 1
+		 \end{pmatrix}  \in G , \quad A^{-1} = \begin{pmatrix}
+		 \frac{1}{a} & 0 \\ -\frac{b}{a} & 1
+		 \end{pmatrix}  \in G  , \qquad aa'>0 , \frac{1}{a}>0
+	\end{aligned}
+\end{equation*}
+عنصر یکه در $G$ هست، به علاوه که عضو وارون و حاصل‌ضرب‌ها هم در آن هست؛ شرکت‌پذیری هم به ارث می‌رسد. بنابراین $G$ واقعا یک گروه است. 
+
+برای بررسی این‌که گروهِ «لی» باشد، نگاشت‌های ضرب و وارون را تعریف می‌کنیم:
+\begin{equation*}
+	\begin{aligned}
+		\text{prod} &: G \times G \mapsto G, \qquad \text{prod}(A,B) = AB \\
+		\text{inv} &: G \mapsto G, \qquad\quad\quad \text{inv}(A) = A^{-1} \\ 
+	\end{aligned}
+\end{equation*}
+تحت نگاشت ضربی،
+\begin{equation*}
+	\begin{aligned}
+		\Big(
+		\varphi \circ \text{prod} \circ (\varphi \times \varphi)^{-1}
+		\Big) \big(
+		(a,b),(a',b')
+		\big) &= \varphi \circ \text{prod} \Big(
+		\begin{pmatrix}
+			a & 0 \\ b & 1
+		\end{pmatrix},
+		\begin{pmatrix}
+			a' & 0 \\ b' & 1
+		\end{pmatrix}
+		\Big) \\ &= 
+		\varphi \big(\begin{pmatrix}
+			aa' & 0 \\ ba'+b' & 1
+		\end{pmatrix}\big) = (aa',ba'+b')
+	\end{aligned}
+\end{equation*}
+می‌توان دید که مولفه‌های اول و دوم نگاشت 
+$\varphi \circ \text{prod} \circ (\varphi \times \varphi)^{-1}$
+تحت مشتق‌گیری
+$\frac{\partial}{\partial a}$
+و 
+$\frac{\partial}{\partial b}$
+و 
+$\frac{\partial}{\partial a'}$
+و 
+$\frac{\partial}{\partial b'}$
+از هرمرتبه‌ای مشتق‌پذیرند؛ پس ضرب نگاشتی هموار است.
+
+مشابها
+\begin{equation*}
+	\begin{aligned}
+		\varphi \circ \text{inv} \circ \varphi^{-1} (a,b) = (\frac{1}{a}, -\frac{b}{a})
+	\end{aligned}
+\end{equation*}
+و هر دو تابع 
+$\frac{1}{a}$
+و
+$-\frac{b}{a}$
+در مشتق‌گیری از هرمرتبه‌ای نسبت به $a$ و $b$ ($a\neq 0$)  خوش‌رفتارند. بنابراین، معکوس‌کردن در این گروه یک نگاشت هموار است. پس این گروه، واقعا یک گروهِ لی است.
+
+\par\noindent\rule{\textwidth}{0.6pt}
+ب) چون 
+$\det(A) =a\neq 0$
+، پس اعضای گروه $G$ در گروه 
+$\text{GL}(2,\mathbb{R})$
+هستند؛ یعنی که $G$ زیرگروه
+$\text{GL}(2,\mathbb{R})$
+است.
+
+\par\noindent\rule{\textwidth}{0.6pt}
+ج)
+فقط کافی است بررسی کنیم که آیا ساختار ضرب گروهی را حفظ می‌کند؟
+\begin{equation*}
+	\begin{aligned}
+		\mu\Biggl(
+		\underbrace{\begin{pmatrix}
+			a & 0 \\ b & 1
+		\end{pmatrix}}_{A}
+		\underbrace{\begin{pmatrix}
+			a' & 0 \\ b' & 1
+		\end{pmatrix}}_{B}
+		\Biggr) = \mu\Biggl(
+		\begin{pmatrix}
+			aa' & 0 \\ ba'+b' & 1
+		\end{pmatrix}
+		\Biggr)
+		 = 
+		 \begin{pmatrix}
+		 	aa' &{\color{red} ba'+b'} \\ 0 & 1
+		 \end{pmatrix}
+	\end{aligned}
+\end{equation*}
+اما از طرف دیگر،
+\begin{equation*}
+	\begin{aligned}
+		\mu\Biggl(
+		\underbrace{\begin{pmatrix}
+				a & 0 \\ b & 1
+		\end{pmatrix}}_{A}
+	\Biggr)\mu\Biggl(
+		\underbrace{\begin{pmatrix}
+				a' & 0 \\ b' & 1
+		\end{pmatrix}}_{B}
+		\Biggr)  = \begin{pmatrix}
+			a & b \\ 0 & 1
+		\end{pmatrix}
+		 \begin{pmatrix}
+			a' & b' \\ 0 & 1
+		\end{pmatrix} = 
+		 \begin{pmatrix}
+			aa' & {\color{red}ab'+b} \\ 0 & 1
+		\end{pmatrix}.
+	\end{aligned}
+\end{equation*}
+می‌بینیم که درایه‌های سطر ۱ و ستون ۲ که با 
+{\color{red} قرمز}
+ مشخص شده‌اند، با هم یکسان نیستند؛ بنابراین $\mu$ همریختی نیست؛ صرفا یک نگاشت بین دو گروه است.
+
+
+
+
+
+
+
+
+
+
+
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{0.5em}
+\textbf{سوال دوم:}
+قراردهید 
+$\omega = \exp(\frac{2\pi i}{3})$.
+ماتریس‌های زیر را در نظر بگیرید:
+\[
+A=
+\begin{pmatrix}
+	1 &  0 & 0 \\ 0 & \omega & 0 \\ 0 & 0 & \omega^2
+\end{pmatrix}, \qquad
+B=
+\begin{pmatrix}
+	0 &  0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0
+\end{pmatrix}
+\] 
+
+\hspace{7mm}
+\begin{parind}
+	الف) نشان دهید که ماتریس‌های 
+	$A$ و $A^2$ و $A^3$
+	با عمل ضرب ماتریسی گروه تشکیل 
+	می‌دهند.
+	
+ب) نشان دهید که ماتریس‌های 
+$B$ و $B^2$ و $B^3$
+با عمل ضرب ماتریسی گروه تشکیل می‌دهند.
+
+ج) آیا ماتریس‌های 
+$A^jB^k (j,k=1,2,3)$
+با عمل ضرب ماتریسی گروه می‌سازند؟
+
+د) آیا ماتریس‌های 
+$A^j \otimes B^k (j,k=1,2,3)$
+با ضرب ماتریسی تشکیل گروه می‌دهند؟
+\end{parind}
+
+
+\vspace{1.5em}
+\par\noindent\rule{\textwidth}{0.6pt}
+\textbf{راه حل:}
+
+الف) توجه‌کنید که 
+$\omega^n = \omega^{n \pmod 3}$. با توجه به این نکته ضرب ماتریسی را انجام می‌دهیم.
+می‌بینیم که
+\begin{equation*}
+	\begin{aligned}
+		A=
+		\begin{pmatrix}
+			1 &  0 & 0 \\ 0 & \omega & 0 \\ 0 & 0 & \omega^2
+		\end{pmatrix}, \quad A^2=
+		\begin{pmatrix}
+		1 &  0 & 0 \\ 0 & \omega^2 & 0 \\ 0 & 0 & \omega
+		\end{pmatrix}, \quad A^3=
+		\begin{pmatrix}
+		1 &  0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+		\end{pmatrix} = I.
+	\end{aligned}
+\end{equation*}
+عضو خنثی‌ در گروه هست و همچنین، $A^2$ و $A$ معکوس یکدیگرند. سایر خواص گروهی بدیهتا در این گروه حاضرند. پس مجموعه‌ی یاد شده گروه است.
+
+\par\noindent\rule{\textwidth}{0.6pt}
+ب) توان‌های مختلف $B$ را ببینیم:
+\begin{equation*}
+	\begin{aligned}
+		B=
+		\begin{pmatrix}
+			0 &  0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0
+		\end{pmatrix}, \quad B^2=
+		\begin{pmatrix}
+		0 &  1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0
+		\end{pmatrix}, \quad B^3=
+		\begin{pmatrix}
+			1 &  0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1
+		\end{pmatrix} = I.
+	\end{aligned}
+\end{equation*}
+تمامی گفته‌های بالا برای این سه ماتریس هم صادق است.
+
+\par\noindent\rule{\textwidth}{0.6pt}
+ج) به این ۹ عضو نگاهی بیندازید:
+\begin{equation*}
+	\begin{aligned}
+		A^1 B^1 , A^1B^2, \underbrace{A^1B^3}_{A} , A^2B^1 , A^2B^2 , \underbrace{A^2B^3}_{A^2}, \underbrace{A^3B^1}_{B} , \underbrace{A^3B^2}_{B^2}, \underbrace{A^3B^3}_{I}
+	\end{aligned}
+\end{equation*}
+به راحتی و با ضرب کردن، سایر اعضا را هم حاصل می‌کنیم.
+\begin{equation*}
+	\begin{aligned}
+		A^1 B^1 &= \begin{pmatrix}
+			0 & 0 & 1 \\ \omega & 0 & 0 \\ 0 & \omega^2 & 0
+		\end{pmatrix} , \qquad 
+		 A^1B^2 = \begin{pmatrix}
+		 	0 & 1 & 0 \\ 0 & 0 & \omega \\ \omega^2 & 0 & 0
+		 \end{pmatrix} \\ 
+		 A^2 B^1 &= \begin{pmatrix}
+		 	0 & 0 & 1 \\ \omega^2 & 0 & 0 \\ 0 & \omega & 0
+		 \end{pmatrix} , \qquad 
+		 A^2B^2 = \begin{pmatrix}
+		 	0 & 1 & 0 \\ 0 & 0 & \omega^2 \\ \omega & 0 & 0
+		 \end{pmatrix} 
+	\end{aligned}
+\end{equation*}
+معکوس عضو 
+$A^2B^1$
+ را ببینیم:
+ \[
+ (A^2B^1)^{-1} = \begin{pmatrix}
+ 	0 & \omega & 0 \\ 0 & 0 & \omega^2 \\ 1 & 0 & 0
+ \end{pmatrix}
+ \]
+ اما این ماتریس در بین ۹ عضو نوشته شده نیست. بنابراین این ۹ عضو تشکیل یک گروه نمی‌دهند.
+
+
+\par\noindent\rule{\textwidth}{0.6pt}
+د) وقتی پای ضرب تانسوری در میان است، قضیه فرق می‌کند. این‌دفعه تشکیل گروه می‌دهند. 
+\begin{enumerate}
+	\item 
+	عضو خنثا را داریم؛ چون عضو
+	$A^3 \otimes B^3 = I \otimes I = I_{9 \times 9}$
+	است.
+	\item  حاصل ضرب دو عنصر نوعی را می‌توان به شکل زیر نوشت:
+	\[
+	\big(A^{i_1}\otimes B^{j_1}\big) 
+	\big(A^{i_2}\otimes B^{j_2}\big) = 
+	\big(A^{i_1+i_2}\otimes B^{j_1+j_2}\big)  
+	\]
+	و چون که 
+	$A^n = A^{n \pmod 3}$
+	و
+	$B^n = B^{n \pmod 3}$، 
+	می‌توان حاصل‌ضرب فوق را دوباره در گروه پیدا کرد؛ کافیست حاصل تقسیم 
+	$i_1+i_2$
+	و
+	$j_1+j_2$
+	بر ۳ را به عنوان توان 
+	$A$
+	و
+	$B$
+	معرفی‌ کنیم.
+	
+	\item عضو وارون 
+	$A^{i}\otimes B^{j}$
+	هم 
+	$A^{3-i}\otimes B^{3-j}$
+	است.
+	\item شرکت‌پذیری این ضرب هم از شرکت‌پذیری ضرب ماتریسی و هم‌چنین توزیع ضرب تانسوری روی ماتریسی به ارث می‌رسد.
+\end{enumerate}
+
+
+
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{0.8em}
+\textbf{سوال سوم}
+\begin{parind}
+الف)
+گروه تولید شده با دو ماتریس پائولی 
+\[
+\sigma_1 = \begin{pmatrix}
+	0 & 1 \\ 1 & 0 
+\end{pmatrix}, \qquad
+\sigma_3 = \begin{pmatrix}
+	1 & 0 \\ 0 & -1
+\end{pmatrix}
+\]
+را پیدا کنید.
+
+ب)
+گروه تولید شده با ماتریس‌های زیر را هم پیدا کنید.
+\[
+\sigma_1 \otimes \sigma_1, \qquad \sigma_3 \otimes \sigma_3
+\]
+\end{parind}
+
+\par\noindent\rule{\textwidth}{0.6pt}
+
+\vspace{1.5em}
+\textbf{راه حل:}
+
+الف)  به سادگی با ضرب می‌توانیم ببینیم که 
+$\sigma_1^2 = \sigma_3^2 = I_2$ 
+؛ پس این دو عضو خودوارونند. باید ضرب این‌دو را هم ببینیم:
+\begin{equation*}
+	\begin{aligned}
+		\sigma_1\sigma_3 = \begin{pmatrix}
+			0 & -1 \\ 1 &0
+		\end{pmatrix} := \sigma_2 , \qquad 
+		\sigma_3\sigma_1 = \begin{pmatrix}
+			0 & 1 \\ -1 &0
+		\end{pmatrix} = -\sigma_2
+	\end{aligned}
+\end{equation*}
+پس باید 
+$\pm \sigma_2$
+را هم در گروه قرار دهیم. 
+
+حالا، چون 
+$\sigma_2^2 = -I_2$
+پس باید 
+$-I_2$
+را هم در گروه قرار دهیم.
+
+در نهایت با ضرب ماتریسی ساده می‌بینیم که 
+\begin{equation*}
+	\begin{aligned}
+		\sigma_1\sigma_3\sigma_1 = -\sigma_3 \\
+		\sigma_3\sigma_1\sigma_3 = -\sigma_1
+	\end{aligned}
+\end{equation*}
+بنابراین دو ماتریس
+$-\sigma_1,-\sigma_3$
+هم باید در گروه تولید شده باشند.
+
+در نهایت می‌توانید بررسی کنید که حالا مجموعه‌ی $G$ متشکل از هشت ماتریس فوق، واقعا یک گروه است.
+\begin{equation*}
+	\begin{aligned}
+		G_1 = \left<\sigma_1,\sigma_3 \right> = \{\pm I , \pm \sigma_1 , \pm \sigma_2,\pm \sigma_3\}
+	\end{aligned}
+\end{equation*}
+
+\par\noindent\rule{\textwidth}{0.6pt}
+ب) باید حاصل ضرب این دو عضو‌، یعنی 
+$(\sigma_1\sigma_3)\otimes (\sigma_1\sigma_3) = \sigma_2\otimes 
+\sigma_2$
+در گروه تولید‌شده باشد. همچنین 
+$(\sigma_1\sigma_1)\otimes (\sigma_1\sigma_1 ) = I \otimes I = I_4$
+در گروه باشد. بنابراین عضو خنثا در گروه هست.
+
+همین چهارعضو گروه را می‌سازند.
+\begin{equation*}
+	\begin{aligned}
+		G_2 = \left<\sigma_1\otimes \sigma_1,\sigma_3\otimes \sigma_3 \right> =  \{ I\otimes I,
+		\sigma_1\otimes \sigma_1,\sigma_2\otimes \sigma_2,\sigma_3\otimes \sigma_3
+		\}
+	\end{aligned}
+\end{equation*}
+توجه‌کنید که قرینه‌ی این اعضا در ضرب‌ ظاهر نمی‌شود. مثلا 
+\[
+(\sigma_3 \otimes \sigma_3) (\sigma_1 \otimes \sigma_1) = (-\sigma_2)\otimes (-\sigma_2) = \sigma_2\otimes\sigma_2 .
+\]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{0.8em}
+\textbf{سوال چهارم:}
+از گروه لیِ 
+$\text{SO}(2,\mathbb{R})$
+،عنصر نوعیِ زیر را در نظر می‌گیریم.
+\[
+A(\alpha) = \begin{pmatrix}
+	\cos(\alpha) & \sin (\alpha) \\
+	-\sin (\alpha) & \cos(\alpha)
+\end{pmatrix}
+\]
+\begin{parind}
+	الف) آیا عضو
+	$A(\alpha) \oplus (1)$
+	از اعضای گروه 
+	$\text{SO}(3,\mathbb{R})$
+	است
+	\footnote{منظور از 
+	$\oplus$
+	جمع مستقیم دو ماتریس است.}
+	؟
+$ (1) \oplus A (\alpha)  $
+چطور؟
+
+ب) در مورد عضویت ماتریس
+$(A(\alpha) \oplus (1)) ((1) \oplus B(\beta))$ 
+در
+$\text{SO}(3,\mathbb{R})$
+چه می‌توانید بگویید؟
+\[
+B(\beta) = \begin{pmatrix}
+	\cos(\beta) & \sin(\beta) \\
+	-\sin(\beta) & \cos(\beta)
+\end{pmatrix}
+\]
+
+ ج) این تمرین در چه چیزی به ما در مورد ارتباط جبر لیِ 
+ $\mathfrak{so}(2,\mathbb{R})$
+ و 
+ $\mathfrak{so}(3,\mathbb{R})$
+ می‌آموزد؟
+
+\end{parind}
+
+
+\vspace{1.5em}
+\par\noindent\rule{\textwidth}{0.6pt}
+\textbf{راه حل:}
+
+الف)
+\[
+A(\alpha)\otimes (1) = \begin{pmatrix}
+	\cos\alpha & \sin\alpha & 0 \\ -\sin\alpha & \cos\alpha & 0 \\ 0 & 0 & 1
+\end{pmatrix}
+\]
+برای بررسی این‌که این ماتریس در 
+$\text{SO}(3,\mathbb{R})$
+هست یا نه؛ دترمینانش را بررسی می‌کنیم. اگر حول سطر سوم و ستون سوم بسط دهیم، دترمینان می‌شود 
+$\cos^2\alpha + \sin^2\alpha = 1$
+پس این ماتریس در 
+$\text{SO}(3,\mathbb{R})$
+هست.این ماتریس درسه بعد، دوران حول محور $z$ به اندازه‌ی زاویه‌ی 
+ $\alpha$
+ است. 
+ 
+به طور مشابه 
+\[
+ (1) \otimes A(\alpha) = \begin{pmatrix}
+	1  & 0 & 0 \\0 & \cos\alpha  & \sin\alpha \\ 0 &  -\sin\alpha & \cos\alpha
+\end{pmatrix}
+\]
+و چون دترمینان این ماتریس هم یک است؛ در 
+$\text{SO}(3,\mathbb{R})$
+هست.
+این ماتریس درسه بعد، دوران حول محور $x$ به اندازه‌ی زاویه‌ی 
+$\alpha$
+است.
+
+\par\noindent\rule{\textwidth}{0.6pt}
+ب)
+دقیقا مشابه با بالا، چون هر دوی 
+$(A(\alpha) \oplus (1))$
+و 
+$((1) \oplus B(\beta))$
+در گروه متعامد هستند؛ پس حاصل‌ضربشان هم در این‌گروه هست. بررسی مستقیم با دترمینان گرفتن از طرفین هم قابل انجام هست.
+
+\par\noindent\rule{\textwidth}{0.6pt}
+ج)
+جبر لی 
+ $\mathfrak{so}(3,\mathbb{R})$
+ باید 
+  $\mathfrak{so}(2,\mathbb{R})$
+  را به عنوان زیرجبر(بسته) در خود داشته باشد.
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\par\noindent\rule{\textwidth}{2pt}
+
+\vspace{0.8em}
+\textbf{مطالعه‌ی بیشتر:}
+آیا گروه‌های لیِ غیر ماتریسی هم داریم؟ البته که داریم. زیرگروهی از گروه لیِ ماتریسی هایزنبرگ هست که باوجود «زیرگروهِ لی» بودن، ماتریسی نیست. گروه هایزنبرگ
+\footnote{شاید کنجکاو باشید که این نام از کجا آمده؟ این گروه دقیقا جبر کوانتومی عملگرهای مکان و تکانه را که گاهی«جبر هایزنبرگ» نامیده می‌شود، تولید می‌کند.}
+به شکل زیر است.
+\[
+H = \Biggl\{
+\begin{pmatrix}
+	1 & a & b \\ 0 & 1 & c \\ 0 & 0 & 1
+\end{pmatrix}\; | \; a,b,c \in \mathbb{R}
+\Biggr\}
+\]
+حالا زیرگروه $N$ از این گروه را به شکل زیر می‌گیریم.
+\[
+N = \Biggl\{
+\begin{pmatrix}
+	1 & 0 & x \\ 0 & 1 & 0 \\ 0 & 0 & 1
+\end{pmatrix}\; | \; x \in \mathbb{Z}
+\Biggr\}
+\]
+می‌توانید به سادگی بررسی کنید که این زیرگروه بهنجاری از گروه هایزنبرگ است. پس از تشکیل گروه خارج‌قسمتی مشاهده می‌کنیم که این گروه ماتریسی نیست. 
+
+منظور از \underline{ماتریسی نبودن} گروه 
+$H/N$
+این است که نمی‌توانیم به شکل یک‌به‌یکی این گروه را در 
+$GL(V)$
+(برای فضای برداری دلخواه $V$) بنشانیم. بعدا که با ماشینری جبر لی بیشتر آشنا شدید، این گزاره را به شکل کلی اثبات می‌کنیم که هسته‌ی هر نگاشتی که از این گروه غیر‌ماتریسی، به ماتریس‌ها تعریف شود، غیر بدیهی است.
+
+هدفم از آوردن این بخش فقط این بود که بدانید هر گروه‌ لی، لزوما ماتریسی نیست.
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,149 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\headheight 0pt
+\headsep 0pt
+\footskip .25in
+\marginparwidth 0pt
+\marginparsep 0pt
+\oddsidemargin \dimexpr 1in -1in
+\topmargin \dimexpr 1in -1in
+\textwidth \dimexpr \pdfpagewidth -2\oddsidemargin -2in
+\textheight \dimexpr \pdfpageheight -2\topmargin -2in
+%Commands
+
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+\usepackage{graphicx}
+\usepackage{xepersian}
+\usepackage{braket}
+\settextfont[]{XB Niloofar}
+\title{\textbf{
+آیا زیرگروه $HK$ آبلی است؟
+}}
+\author{مربوط به تمرین کلاسی}
+\date{}
+
+\begin{document}
+\maketitle
+در کلاس دیدیم که اگر 
+$H$ و $G$ 
+دو زیرگروه از گروه $G$ باشند، در این صورت مجموعه‌ی 
+$HK$
+با تعریف 
+\[
+HK = \{hk \;\big|\; h\in H , k\in K\}
+\]
+زیرگروهی از $G$ است، اگر و تنها اگر $HK = KH$.
+
+سوالی که در کلاس مطرح شد این بود که با فرض زیرگروه بودن 
+$HK$
+‌، آیا زیرگروه آبلی است؟ (چون شرط 
+$HK=KH$
+ناخودآگاه آبلی بودن را به خاطر می‌آورد.
+)
+
+\vspace{1.5em}
+\textbf{اولا:}
+توجه کنید که معنای شرط 
+$HK=KH$
+این است که به ازای هر عضو 
+$hk \in HK$
+حتما اعضایی مثل 
+$\tilde{k} \in K , \tilde{h}\in H$
+هستند که:
+\[
+\tilde{k}\tilde{h} = hk
+\]
+‌‌در حقیقت لزومی ندارد که 
+$\tilde{k}$
+و 
+$\tilde{h}$
+همان 
+$k$ و $h$ 
+باشند. پس انگار شرط ضعیفتری نسبت به آبلی بودن هست.
+
+\vspace{1.5 em}
+\textbf{مثال نقض:}
+گروه 
+$S_3$
+را که همگی با آن آشنا هستید، یک مثال نقض ارائه می‌کند. بگیرید:
+\begin{equation*}
+	\begin{aligned}
+		H &= \{e , (12)\} \\
+		K &= \{e, (123), (132)\}
+	\end{aligned}
+\end{equation*}
+با تعریف ضرب در گروه $S_3$ می‌توانید ببینید که هر دو زیرگروه هستند و داریم:
+\[
+HK = \{hk \; \big| \; h\in H , k\in K\} = \{e, (12),(123),(132),(13),(23)\} = S_3
+\]
+علت اضافه شدن اعضای 
+$(13),(23)$
+به خاطر ضربهای 
+\begin{equation*}
+	\begin{aligned}
+		(12)(123) &=
+		\begin{pmatrix}
+			1 & 2 & 3 \\
+			2 & 1 & 3
+		\end{pmatrix}.
+		\begin{pmatrix}
+		 	1 & 2 & 3 \\
+		 	2 & 3 & 1
+		 \end{pmatrix} = 
+		 \begin{pmatrix}
+		 	1 & 2 & 3 \\
+		 	1 & 3 & 2 
+		 \end{pmatrix} = 
+		 (23)\\
+		(12)(132) &=
+		\begin{pmatrix}
+			1 & 2 & 3 \\
+			2 & 1 & 3
+		\end{pmatrix}.
+		\begin{pmatrix}
+			1 & 2 & 3 \\
+			3 & 1 & 2
+		\end{pmatrix} = 
+		\begin{pmatrix}
+			1 & 2 & 3 \\
+			3 & 2 & 1 
+		\end{pmatrix} = 
+		 (13)
+	\end{aligned}
+\end{equation*}
+است.
+پس می‌بینید که 
+$HK = S_3$
+آبلی نیست.
+
+\vspace{1.5em}
+\noindent
+برای آشنایی بیشتر با گروه 
+$S_3$  
+زیرگروه‌ها، کلاس‌های تزویجی و جدول ضربش، به 
+\href{https://groupprops.subwiki.org/wiki/Subgroup_structure_of_symmetric_group:S3}{این}
+ و 
+ \href{https://groupprops.subwiki.org/wiki/Determination_of_multiplication_table_of_symmetric_group:S3}{این}
+  صفحه مراجعه کنید.
+
+
+
+
+
+
+
+
+
+
+\end{document}

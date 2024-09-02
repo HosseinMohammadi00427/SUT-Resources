@@ -1,0 +1,132 @@
+
+\documentclass[12pt]{article}
+
+\usepackage[a4paper,
+bindingoffset=0.2in,
+left=1in,
+right=1in,
+top=0.5in,
+bottom=0.8in,
+footskip=.25in]{geometry}
+\usepackage{amsmath,amsthm,amssymb,diagbox,physics, amsfonts, fixmath, tikz, pgf, multirow, hyperref, amsfonts, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+
+\usepackage{xepersian}
+\settextfont[]{XB Niloofar}
+\setdigitfont{XB Niloofar}
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+
+\newenvironment{exercise}[3][\unskip]{%
+	\par
+	\noindent
+	\textbf{
+		#1
+		[#2 امتیاز] 
+		\def\temp{#3}\ifx\temp\empty
+		: 
+		\else
+		: #3 \vspace{0.5em} \\
+		\fi
+}}{}
+
+\begin{document}
+	
+	
+	\title{آزمونک سوم - درس نظریه‌ گروه‌ها
+		\\
+		{\normalsize 
+			\textbf{استاد درس:}
+			دکتر رضاخانی
+		}
+	}
+	\author{
+		\small
+		\textbf{دستیارهای درس:}
+		حسین محمدی، زهرا کبیری
+	} 
+	\date{10 اردیبهشت ماه سال 1403}
+	\maketitle
+	سوال زیر با هدف مرور مفاهیم اثر گروه روی مجموعه طراحی شده است.
+	
+	\vspace{1.5em}
+	\noindent
+	\textbf{ سوال:}
+	مجموعه‌ی 
+	\[
+	G = \Biggl\{
+	\begin{bmatrix}
+		1&0 \\ 0&1
+	\end{bmatrix},
+	\begin{bmatrix}
+		-1&0 \\ 0&1
+	\end{bmatrix},
+	\begin{bmatrix}
+		1&0 \\ 0&-1
+	\end{bmatrix},
+	\begin{bmatrix}
+		-1&0 \\ 0&-1
+	\end{bmatrix},
+	\begin{bmatrix}
+		0&1 \\ 1&0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0&1 \\ -1&0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0&-1 \\ 1&0
+	\end{bmatrix},
+	\begin{bmatrix}
+		0&-1 \\ -1&0
+	\end{bmatrix}
+	\Biggr\}
+	\]
+	را با عمل ضرب ماتریسی در نظربگیرید. این مجموعه یک زیرگروه متناهی از گروه
+	$\text{GL}_2(\mathbb{R})$
+	را تشکیل می‌دهد.
+	
+	\noindent
+	همانطور که می‌دانیم؛ این گروه با ضرب ماتریسی روی بردارهای صفحه عمل می‌کند.
+	
+	\vspace{1.5em}
+	\noindent
+	مدارهای اثر این گروه روی بردارها را دسته بندی کنید. یعنی اثر اعضای $G$ روی اعضای
+\[
+e_1 = 	\begin{bmatrix}
+		0 \\ 0
+	\end{bmatrix},
+e_2 = 	\begin{bmatrix}
+		x \\ x
+	\end{bmatrix},
+	e_3 = \begin{bmatrix}
+		0 \\ y
+	\end{bmatrix},
+e_4 = 	\begin{bmatrix}
+		x \\ y
+	\end{bmatrix}
+\]
+	با شرط
+	(
+	$x\neq y$ و $x,y\neq 0$
+	)
+	بدست آورید و سپس مجموعه
+	$O_G(e_i)$
+	را برای بردارهای بالا بسازید.
+	
+	\noindent
+	استدلال کنید که مدارها، مجموعه‌ی بردارهای دوبعدی را افراز می‌کنند.
+	
+	
+	
+	
+	
+	
+	
+	
+	
+\end{document}

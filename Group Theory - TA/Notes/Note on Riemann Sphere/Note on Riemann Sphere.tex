@@ -1,0 +1,111 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+\usepackage[hidelins]{hyperref}
+
+\pdfpagewidth 8.5in
+\pdfpageheight 11in
+\headheight 0pt
+\headsep 0pt
+\footskip .25in
+\marginparwidth 0pt
+\marginparsep 0pt
+\oddsidemargin \dimexpr 1in -1in
+\topmargin \dimexpr 1in -1in
+\textwidth \dimexpr \pdfpagewidth -2\oddsidemargin -2in
+\textheight \dimexpr \pdfpageheight -2\topmargin -2in
+%Commands
+
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+\usepackage{graphicx}
+\usepackage{xepersian}
+\usepackage{braket}
+\settextfont[]{XB Niloofar}
+\title{\textbf{
+تعریف استثنایی عضو خنثای‌ جمع
+\footnote{به این معنی که نیاز نیست وارون ضربی داشته باشد.}
+ در تعریف میدان
+}}
+\author{سوال کلاسی}
+\date{}
+
+\begin{document}
+\maketitle
+\begin{boxes}{black}{سوال}
+یکی از دوستان پرسید که این خیلی عجیب است که در تعریف میدان، عضو خنثای عمل جمع را از داشتن وارون ضربی معاف می‌کنیم و آیا ساختاری وجود دارد که عضو وارون برای صفرِ جمعی وجود داشته باشد؟
+\end{boxes}
+\vspace{1em}
+ساختارهای جبری‌ای هستند که در آنها صفر هم وارون‌پذیری ضربی داشته باشد، در اصطلاح به آنها 
+\lr{Wheel}
+می‌گوییم. البته این ساختارها به اصطلاح 
+\lr{Universal covering algebra}
+هستند، یعنی با توسعه‌ دادن یک جبر بدست می‌آیند. برای مطالعه بیشتر در مورد ساختار \lr{Wheel}می‌توانید به 
+\href{https://en.wikipedia.org/wiki/Wheel_theory}{صفحه‌ی ویکی‌پدیای این ساختار}
+رجوع کنید.
+
+در مورد این ساختارها از زبان یک 
+\href{https://www.quora.com/Can-there-be-a-field-where-every-element-has-a-multiplicative-inverse-even-the-additive-identity-0-Are-there-fields-where-the-roles-are-switched-instead-of-zero-having-no-multiplicative-inverse-one-has-no-additive#:~:text=Almost%20all%20real%20numbers%20have,only%20one%20that%20does%20not.&text=For%20the%20number%20zero%2C%20there,produce%20a%20product%20of%20one.}{ریاضی‌دان}
+ هم می‌شود شنید که:
+\begin{LTR}
+\begin{quote}
+	\lr{"Wheels are fine and all, they’re just not as deep, interesting, useful, ubiquitous, profound and rich as fields."}
+\end{quote}
+\end{LTR}
+
+همچنین این خاصیت (یعنی تنها عنصری که وارون ضربی ندارد، عضوی خنثای عمل جمع است.) در بسیاری از اثبات‌های میدان به کار می‌رود؛ مثلا اثبات این که وارون ضربی سایر عناصر یکتا هستند، کاملا روی این خاصیت بنا شده.
+
+
+\vspace{2em}
+در موارد معدودی هم می‌شود اعداد را توسعه داد وارون ضربی صفر را در جبر گنجاند
+\footnote{با این پیچش ساده که وارون ضربی صفر لزوما یکتا نخواهد بود.}
+. به عنوان مثال، کره‌ی ریمان، 
+$\hat{\mathbb{C}}$
+از تمام اعداد مختلط به همراه نقطه‌ی بی‌نهایت ساخته شده.
+\[
+\hat{\mathbb{C}} = \mathbb{C} \cup {\infty}
+\]
+و همچنین جبر هم اینطور توسعه داده می‌شود:
+\begin{enumerate}
+	\item صفر وارون ضربی بی‌نهایت است، به این معنی که 
+	\[
+	\frac{z}{0} = \infty \;\;\; , \;\;\; \frac{z}{\infty} = 0
+	\]
+	\item جمع و تفریق با بی‌نهایت به این شکل تعریف می‌شود:
+	 \[
+	 z\pm \infty = \infty
+	 \]
+	\item البته این عضو جدید وارون جمعی ندارد.
+\end{enumerate}
+
+می‌بینید که وارد کردن این وارون ضربی با مشکلاتی همراه بوده است. به دلیل ناسازگار شدن 
+\lr{axiom}
+هاست که نمی‌توان تعریف میدان را مستقیما توسعه داد.
+
+\begin{boxes}{red}{توصیف بهتر کره‌ی ریمان:}
+	این ساختار 
+	$\hat{\mathbb{C}}$
+	در حقیقت از روی یک 
+	\lr{complex-strucre}
+	روی کره‌ القا می‌شود که نقطه‌ی بی‌نهایت از فشرده‌سازی تک‌نقطه‌ای حاصل می‌شود. برای توصیف دقیقتر کره‌ی ریمان باید خمینه‌ی 
+	$\mathbb{S}^2$
+	را با دو چارت بپوشانیم. یکی از چارت‌های متداول، چارت
+	\lr{Stereographic}
+	است که فقط قطب شمال کره‌ را نمی‌پوشاند. برای مقاصد محاسباتی، معمولا قطب شمال را با نماد 
+	$\infty$
+	وارد همان چارت می‌کنند.
+	
+	برای درک بهتر به 
+	\href{https://en.wikipedia.org/wiki/Riemann_sphere#As_a_sphere}{اینجا}
+	مراجعه کنید.
+\end{boxes}
+
+
+
+
+\end{document}
