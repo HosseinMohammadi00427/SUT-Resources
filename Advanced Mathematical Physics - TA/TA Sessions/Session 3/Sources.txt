@@ -1,0 +1,2 @@
+Mobius strip homology groups, easier derivation:
+https://math.stackexchange.com/questions/388682/how-to-calculate-the-homology-groups-of-the-m%C3%B6bius-strip

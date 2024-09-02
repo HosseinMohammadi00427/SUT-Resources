@@ -1,0 +1,287 @@
+% !TeX program = xelatex
+%this is a very simple document using  packag\ {article}
+\documentclass{article}
+\usepackage{tcolorbox}
+\usepackage{graphicx}
+\usepackage{xepersian}
+\usepackage{pifont}
+\usepackage{xcolor}
+\usepackage{amssymb}
+%\usepackage{amsmath}
+\linespread{1.9}
+\setlength{\textwidth}{17 cm}
+\setlength{\evensidemargin}{1 cm}
+\setlength{\oddsidemargin}{-0.7 cm}
+
+\parindent 0mm
+\settextfont[Scale=1]{XB Zar}
+%\setlatintextfont{Linux Libertine}
+
+\def\la{\langle}
+\def\ra{\rangle}
+
+
+
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}
+\def\ba{\begin{eqnarray}}
+\def\ea{\end{eqnarray}}
+\def\lo{\longrightarrow}
+\def\h{\hskip 1cm }
+\def\hh{\hskip 2cm}
+\def\la{\langle}
+\def\ra{\rangle}
+\def\a{\alpha}
+\def\b{\beta}
+\def\g{\gamma}
+\def\d{\delta}
+\def\e{\epsilon}
+\def\l{\lambda}
+\def\D{\Delta}
+\def\G{\Gamma}
+\def\L{\Lambda}
+\def\m{\mu}
+\def\n{\nu}
+\def\bex{\begin{dinglist}{110}\dsquare}
+	\def\eee{\end{dinglist}}
+\def\bet{\begin{dinglist}{110}\bsquare}
+	
+	\definecolor{myblue}{RGB}{150,29,119}
+	\definecolor{mydark}{RGB}{50,129,219}
+	\newcommand{\bsquare}{\item[\color{myblue}\ding{110}]}
+	\newcommand{\dsquare}{\item[\color{mydark}\ding{110}]}
+	%\setdigitfont[Scale=1.2]{XB Zar}
+
+
+
+\title{  آزمون پایانی  درس ریاضی فیزیک پیشرفته  }
+\author{وحیدکریمی پور- دانشکده فیزیک - دانشگاه صنعتی شریف
+}
+\date{۲۱ خرداد سال ۱۴۰۳}
+%\author{گروه فارسی‌لاتک\\ \small http://wiki.parsilatex.com}
+\newenvironment{parind}{%
+	\par%
+	\medskip
+	\leftskip=10mm\rightskip=7mm
+	\noindent\ignorespaces}{%
+	\par\medskip}
+\begin{document}
+	%\romantoday
+	\maketitle
+	
+	\def\be{\begin{equation}}
+	\def\ee{\end{equation}}
+	\def\ba{\begin{eqnarray}}
+	\def\ea{\end{eqnarray}}
+	\def\lo{\longrightarrow}
+	\def\h{\hskip 1cm }
+	\def\hh{\hskip 2cm}
+	\def\la{\langle}
+	\def\ra{\rangle}
+	\def\a{\alpha}
+	\def\b{\beta}
+	\def\g{\gamma}
+	\def\d{\delta}
+	\def\e{\epsilon}
+	\def\l{\lambda}
+	\def\D{\Delta}
+	\def\G{\Gamma}
+	\def\L{\Lambda}
+	\def\m{\mu}
+	\def\n{\nu}
+	\def\dbar{{\mathchar'26\mkern-12mu d}}
+	\def\bex{\begin{dinglist}{110}\dsquare}
+		\def\eee{\end{dinglist}}
+	\def\bet{\begin{dinglist}{110}\bsquare}
+		
+		\definecolor{myblue}{RGB}{150,29,119}
+		\definecolor{mydark}{RGB}{50,129,219}
+		
+		\definecolor{myblue}{RGB}{150,29,119}
+
+
+
+
+  {\color{cyan}
+\begin{center} \linethickness{1mm}\line(1,0){470} \end{center}
+}
+\vspace{-1.2em}
+\bet{
+\begin{parind}
+لطفا به نکات زیر توجه کنید. \\
+\textbf{صفر:} مدت امتحان سه ساعت است. \\
+\textbf{یک: }استدلال های خود را به صورت کاملا مرتب و منظم، بدون خط خوردگی و به صورت روشن همراه با جملات رابط فارسی بنویسید. یک مجموعه از روابط ریاضی پشت سرهم بدون آنکه ارتباط آن ها را با هم  روشن کرده باشید استدلال محسوب نمی شود.  به یاد داشته باشید که روشن کردن مفهوم  و خط سیر استدلال وظیفه نویسنده است نه خواننده.\\
+\textbf{دو:} 
+{\bf {\ {روابط ریاضی خود را روی برگه  به شکل منسجم همراه با متن فارسی خوب بنویسید، آن ها روی صفحه کاغذ نریزید. برگه پاسخ  شما می بایست مانند یک اثر هنری کلاسیک باشد نه یک اثر کوبیسم یا پست مدرن. به این نوع آثار هیچ نمره ای تعلق نخواهد گرفت. }}}  \\
+\textbf{سه:  } سوال های خود را پشت سر هم بنویسید. به سوال هایی که بدون ترتیب و با آدرس دهی  به صفحات دیگر نوشته شده باشند ترتیب اثر داده نخواهد شد. \\
+\end{parind}
+}\eee
+\vspace{-4em
+}
+ {\color{cyan}
+	\begin{center} \linethickness{1mm}\line(1,0){470} \end{center}
+}
+\newpage
+
+\textbf{سوال اول:}   یکریختی
+\LTRfootnote{
+Homeomorphism }
+بین خمینه‌های زیر را ثابت کنید.
+
+\begin{eqnarray}
+	&&	\frac{{SO}(n+1)}{{SO}(n)} \sim S^n\cr
+	&&	\frac{U(n+1)}{U(n)}  \sim S^{2n+1}\cr
+	&&	\frac{O(n+1)}{O(1)\times O(n)}	\sim {\mathbb{R}}{P}^n
+\end{eqnarray}
+\vspace{-5em}
+
+
+ {\color{cyan}
+	\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+}
+
+\textbf{سوال دوم:} 
+فرمِ دیفرانسیلِ زیر را در فضای 
+$\mathbb{R}^3$
+در نظر بگیرید:
+\[
+	\omega = (z-x^2-xy) {d}x\wedge{d}y - {d}y\wedge{d}z - {d}z\wedge {d}x
+\]
+هم‌چنین دیسک دوبعدی را به شکلِ 
+$
+	D = \{(x,y) \in \mathbb{R}^2 \;|\; x^2 + y^2 \leq 1\} 
+$
+تعریف می‌کنیم.
+
+ نگاشتِ شمول
+\LTRfootnote{Inclusion}
+،
+$i:D\longmapsto \mathbb{R}^3$
+را در نظر بگیرید. (این نگاشت شمول، دیسک دو بعدی را روی صفحه‌ی 
+$z=0$
+می‌نشاند.) {انتگرال زیر را محاسبه کنید.}
+\[
+	\int_{D}^{} i_*\omega
+\]
+
+\vspace{-3.5em}
+ {\color{cyan}
+	\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+}
+
+
+\textbf{سوال سوم:}  یک هموستارِ  
+خطی
+\LTRfootnote{Linear connection}
+ مثلِ
+$\nabla$
+و یک میدانِ تانسوری از نوع 
+$(1,2)$
+روی خمینه‌ی هموارِ
+$M$ 
+ فرض کنید. حال یک هموستار دیگری به شکل 
+$\tilde{\nabla}$
+ به شکل زیر معرفی می‌کنیم:
+\[
+\tilde{\nabla}_XY = \nabla_XY +A(X,Y)
+\]
+
+	الف) نشان دهید که 
+	$\tilde{\nabla}$
+	یک هموستار خطی است.
+	
+	ب)اگر 
+	$\nabla_0$
+	 و
+	 $\nabla_1$
+	 دو هموستارِخطی رویِ این خمینه باشند؛ نشان‌دهید که 
+	 $
+	 \nabla_t = (1-t)\nabla_0 + t\nabla_1
+	 $
+	 هم به‌ازای هر 
+	 $t\in [0,1]$
+	 ، یک هموستارِ خطی است.
+
+\vspace{-1em}
+
+
+{\color{cyan}
+	\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+}
+\textbf{سوال چهارم: }
+	$M$ را خمینه‌ای هموار بگیرید و
+فرم‌های 
+$\omega \in \Lambda^p(M)$
+و
+$\eta \in \Lambda^q(M)$
+مفروض هستند.
+اول نشان‌دهید که کلاسِ کوهمولوژیِ فرم 
+$\omega \wedge \eta$
+تنها به کلاسِ کوهمولوژیِ 
+$\eta$ و‌$\omega$
+بستگی دارد.  بنابراین  می توان یک ضرب خارجیِ
+  
+\[\smile : H^p_{{dR}}(M_1) \times H^q_{{dR}}(M_1) \rightarrow{\quad} H^{p+q}_{{dR}}(M_1)\]
+با تعریفِ
+\[
+[\omega] \smile [\eta] = [\omega \wedge \eta]
+\]
+روی کلاس های کوهومولوژی تعریف کرد. نشان دهید که این ضرب 
+خوش‌تعریف است. به این ضرب، 
+\lr{Cup product}
+گفته می‌شود.
+
+\vspace{-3em}
+
+
+{\color{cyan}
+	\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+}
+
+
+\textbf{سوال پنجم:}
+دو فرم دیفرانسیل
+$\a\ ,\ \beta \in \Lambda^n(M)$
+را روی یک خمینه 
+$n$
+بعدی فشرده و جهت پذیرِ
+$M$ 
+در نظر بگیرید. نشان دهید که اگر
+$\int _M \a=\int_M\beta$
+باشد،
+آنگاه تفاوت این دو فرم دیفرانسیل یک فرم کامل
+\LTRfootnote{Exact}
+است. 
+
+
+
+\vspace{-3em}
+
+{\color{cyan}
+	\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+}
+
+
+
+\textbf{سوال ششم: }$M$ را خمینه‌ای هموار بگیرید و 
+$X,Y$ هم میدان‌های برداری روی آن هستند؛ همچنین $f,g$ توابعِ رویِ این خمینه‌اند و $\omega$
+هم ۱-فرم دیفرانسیلی است که روی خمینه زندگی می‌کند. روابطِ ساده‌ی زیر را ثابت کنید.
+\begin{parind}
+	الف)
+	$\mathcal{L}_{fX} Y = f \mathcal{L}_X Y - df(Y)X$
+	
+	ب)
+	$\mathcal{L}_{fX} \omega  = f\mathcal{L}_X \omega + \omega(X) df$
+	
+	ج)
+	$\mathcal{L}_{fX} g = f\mathcal{L}_Xg$
+\end{parind}
+
+
+\end{document}
+
+
+
+
+
+

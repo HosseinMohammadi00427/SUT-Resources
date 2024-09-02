@@ -1,0 +1,6 @@
+1. Bachelor Thesis on Classification of Surfaces.
+https://people.math.ethz.ch/~acannas/Student_Papers/BSc_Theses/2023_bsc_da_silva_classification_of_surfaces.pdf
+https://www.isibang.ac.in/~sury/santanil.pdf
+
+2. Application of Van Kampen Thm:
+https://people.reed.edu/~jerry/332/projects/colley.pdf

@@ -1,0 +1,228 @@
+\documentclass{article}
+\usepackage{tcolorbox,mdframed}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fontspec}
+\usepackage{xepersian}
+\settextfont[]{XB Zar}
+\setdigitfont{XB Zar}
+
+%\setlatintextfont{Linux Libertine}
+\setlength{\textwidth}{17.2 cm}
+\setlength{\evensidemargin}{1 cm}
+\setlength{\oddsidemargin}{-0.7 cm}
+\linespread{1.9}
+\title{ سری دوم تمرینات درس ریاضی‌فیزیک پیشرفته - دکتر کریمی‌پور
+\\
+\vspace{-1em}
+توپولوژی، همولوژی و هموتوپی
+}
+
+\author{موعد تحویل پاسخ‌ها:
+ دوشنبه ۱۷ اردیبهشت سال ۱۴۰۳ - تا ساعت 59:23
+ \\
+ از طریق 
+ \href{https://cw.sharif.edu/}{سامانه درس‌افزار}
+\\
+دانشکده فیزیک - دانشگاه صنعتی شریف
+}\date{}
+
+\newcommand{\pardev}[2]{
+	\frac{\partial #1}{\partial #2}
+}
+
+\begin{document}
+	%\romantoday
+	\maketitle
+	
+	\def\endline{		{
+			\vspace{-2.5em}
+			\color{cyan}
+			\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+	}}
+\def\thinendline{		{
+		\vspace{-2.5em}
+		\color{purple}
+		\begin{center} \linethickness{0.5mm}\line(1,0){500} \end{center}
+}}
+\vspace{-2em}
+		\endline
+		
+		\noindent
+		\textbf{سوال اول:}
+		نشان دهید
+	 زیرمجموعه $A$ از فضای متریک کامل $(M,d)$ فشرده است، اگر و تنها اگر بسته و تماما کراندار
+	 \LTRfootnote{Toatally bounded}
+	  باشد.
+	 
+	 \begin{mdframed}
+	 	\textbf{تعریف تماما کرانداری:}
+	 	زیرفضای $A$ از فضای متریک $(M,d)$ تماما کراندار است اگر برای هر 
+	 	$\varepsilon>0$
+	  مجموعه‌ای متناهی از گوی‌های باز با شعاع $\varepsilon$ باشد که:
+	  \begin{enumerate}
+	  	\itemsep-0.5em 
+	  	\item مرکز گوی‌ها در $A$ باشد.
+	  	\item اجتماع تمامی این گوی‌های باز شامل کل $A$ شود. 
+	  \end{enumerate}
+	 \end{mdframed}
+		
+		\vspace{-2em}
+				\endline
+		
+		\noindent
+		\textbf{سوال  دوم:}
+		دو فضای متریک 
+		$(M,d_M)$ 
+		و
+		$(N,d_N)$
+		مفروض هستند.
+		اگر نگاشت 
+		$f: M \longmapsto N$
+		پیوسته باشد و $A$ زیرمجموعه‌ای فشرده از $M$ باشد؛ نشان دهید که تصویر $A$، یعنی $f(A)$ زیرمجموعه‌ای فشرده از $N$ است. نتیجه بگیرید که نگاشت
+		\lr{Homeomorphism}
+		بین دوفضای متریک، وضعیت فشردگی را حفظ می‌کند.
+		
+		
+				\endline
+		
+		\noindent
+		\textbf{سوال سوم:}
+		ساده‌ترین نگاشت بین فضاهای متریک یک 
+		\textit{ایزومتری}
+		است؛ یعنی یک تابع دوسوییِ
+		$f: M \longmapsto N$ 
+		که فاصله‌نگهدار است؛ یعنی برای هر دو عضو $p,q\in M$ داریم:
+		\[
+		d_N(f(p),f(q)) = d_M(p,q)
+		\]
+		همچنین به فضاهایی که بین‌شان نگاشت ایزومتری موجود باشد، فضاهای \textit{ایزومتریک} می‌گوییم.
+		
+		\noindent
+		الف) نشان دهید که نگاشت ایزومتری، پیوسته است.
+		
+		\noindent
+		ب) استدلال کنید که هر نگاشت ایزومتری یک 
+		\lr{Homeomorphism}
+		است.
+		
+		\noindent
+		ج) نشان دهید که بازه‌ی حقیقی
+		$[0,1]$
+		 با بازه‌ی 
+		 $[0,2]$
+		 ایزومتریک نیست.
+		 
+		\endline
+		
+				\noindent
+		\textbf{سوال چهارم:}
+		اگر $M$ و $N$ دو فضای متریک ناتهی باشند. نشان دهید که اگر هر دو همبند
+		\lr{Connected}
+		باشند، فضای متریک 
+		$M\times N$ هم همبند است.
+		در مورد عکس این گزاره استدلال یا مثال نقضی بیاورید.
+		
+			\endline
+			
+							\noindent
+			\textbf{سوال پنجم:}
+			به کمک تعاریف، گزاره‌های زیر را برای یک زیرفضای $S$ از فضای متریک $M$ نشان دهید.
+			
+			\noindent
+			الف)
+			$S^{\circ} = S\backslash \partial S$
+			
+			\noindent
+			ب) 
+			$(S^{\circ})^\circ = S^{\circ}$
+			
+			\noindent
+			ج)
+			$\partial S = \partial \bar{S}$
+			
+			 \noindent
+			 د)
+			 $\partial\partial S \subset \partial S$
+			
+			
+			
+			
+			\endline
+			
+			
+							\noindent
+			\textbf{سوال ششم:}
+			فرض کنید
+			$\pi: \tilde{X} \longmapsto X$
+			یک نگاشت پوششی باشد که
+			برای هر $x\in X$، 
+			$\pi^{-1}(x)$
+			ناتهی و متناهی باشد. نشان دهید که فضای توپولوژیک $\tilde{X}$ هاسدورف 
+			\LTRfootnote{Hausdorff}
+			است اگر و فقط اگر فضای توپولوژیک
+			$X$
+			هاسدورف باشد.
+			
+			\endline
+			
+			
+							\noindent
+			\textbf{سوال هفتم:}
+			گروه‌های همولوژی نوار موبیوسی که یک نقطه از آن حذف شده را پیدا کنید.
+			
+			
+			\endline
+			
+			\newpage
+							\noindent
+			\textbf{سوال هشتم:}
+			$\pi_1(\Sigma_{g,n})$، یعنی 
+			گروه هموتوپی اول یک رویه‌ی ریمانی با جینس $g$ که $n$ نقطه‌ی آن حذف شده‌اند، پیدا کنید. آیا می‌توانید با آبلی کردن گروه بدست‌آمده، به گروه‌ همولوژی اول برسید؟
+			
+			\endline
+			
+			
+							\noindent
+			\textbf{سوال نهم:}
+			نشان دهید که بین فضاهای زیر،  
+			\lr{Deformation Retraction}
+			وجود ندارد.
+			
+			\noindent
+			الف) 
+			$\mathbb{R}^2$
+			و
+			$S^1$.
+			
+			\noindent
+			ب) 
+			$S_1 \times D_1$
+			و
+			$S_1\times S_1$. 
+			(یعنی از یک چنبره‌ی توپر به مرزش)
+
+			\noindent
+			ج) نوار موبیوس و مرزش.
+			
+			\endline
+			
+							\noindent
+			\textbf{سوال دهم:}
+			مجموعه‌ی 
+			$X$ را متشکل از 
+			$n$ خط مبداگذر در 
+			$\mathbb{R}^3$
+			بگیرید. گروه
+			$\pi_1(\mathbb{R}^3-X)$
+			را بدست آورید.
+			
+			\endline
+
+\end{document}
+
+
+

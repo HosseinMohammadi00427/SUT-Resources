@@ -1,0 +1,469 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[top=20mm, bottom=25mm, left=1.6in, right=1.6in,includehead=true,includefoot=true]{geometry}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{enumitem,hyperref,dsfont}
+\usepackage[linewidth= 1pt]{mdframed}
+\usepackage{colortbl}
+\usepackage{xepersian}
+\setdigitfont{XB Niloofar}
+\settextfont[]{XB Niloofar}
+\deflatinfont\enfont[Scale=1]{Times New Roman}
+
+\newcommand{\mycomment}[1]{}
+\parindent 0mm
+\newenvironment{parind}{%
+	\par%
+	\medskip
+	\leftskip=0mm\rightskip=7mm
+	\noindent\ignorespaces}{%
+	\par\medskip}
+
+\parindent 0mm
+\title{\textbf{
+ جلسه هفتم حل تمرین درس ریاضی‌فیزیک پیشرفته
+ \\
+ \small
+ ‌هندسه ریمانی
+}}
+\author{حسین محمدی
+\\
+\small
+چهارشنبه 26 اردیبهشت سال 1403
+}
+\date{}
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+
+\begin{document}
+\maketitle
+
+\textbf{سوال اول:
+درباب مقدمات خمینه‌های ریمانی
+}
+
+\vspace{0.7em}
+خمینه‌ی ریمانی
+$(M,g)$ یک خمینه‌ی 
+$n$-بعدی است. نشان دهید که: 
+\begin{parind}
+	الف) به‌ازای هر 
+	$\alpha,\beta \in T_p^\star M$
+	و هرپایه‌ی یکه‌متعامد
+	$\{e_i\}_{i=1}^n$
+	از فضای مماسِ
+	$T_pM$
+	داریم:
+
+	\[
+	g^{-1}(\alpha,\beta) = \sum_{i} \alpha(e_i)\beta(e_i)
+	\]
+که در آن 
+$g^{-1}$
+متریک پادوردای مربوط به $g$ است؛ در کاربرد‌های فیزیکی، منظور ما از 
+$g^{-1}$
+همان 
+$g^{\mu\nu} \partial_\mu\otimes\partial_\nu$
+است.
+
+ب)
+برای هر بردار 
+$X \in T_pM$
+همواره 
+\[
+g^{-1} ( \alpha , X^{\flat}) = \alpha(X) = g(\alpha^\sharp,X)
+\]
+که در این عبارات، یک‌ریختی‌های موسیقایی فضای‌مماس
+\LTRfootnote{Tangent space musical isomorphisms}
+\footnote{یکر‌یختی فضاهای برداری را با یکریختی‌گروهی اشتباه نکنید؛ اینجا منظورمان یک‌ریختی فضای برداری‌استو}
+به شکل زیر تعریف شده‌اند:
+\begin{equation*}
+	\begin{aligned}
+		\flat &: T_pM \xrightarrow{\quad} T_p^*M \qquad X^\flat = g(X,.) \\
+		\sharp&: T_p^*M \xrightarrow{\quad} T_pM \qquad \alpha^\sharp = g^{-1}(\alpha,.) 
+	\end{aligned}
+\end{equation*}
+\end{parind}
+
+\newpage
+\textbf{سوال دوم: درباب هموستار و مشتق هموردا}
+
+\vspace{0.7em}
+ متریک
+ $g$
+ را متریک "هرمیتی" روی خمینه‌ی تقریبا مختلط
+ \LTRfootnote{Almost complex manifold}
+ $(M,J)$
+  در‌نظر بگیرید.
+  
+  از این اصطلاحات نترسید؛ یک ساختار تقریبا مختلط
+  \LTRfootnote{Almost complex structure}
+  روی یک خمینه، نگاشتی است از هر فضای مماس به خودش به شکل زیر:
+  \[
+  \forall p\in M: \quad J(p): T_pM \xrightarrow{\quad} T_pM \;\; : \;\; J^2=-I_{n\times n}.
+  \]
+  و متریک $g$ هرمیتی است اگر 
+  \[
+  g(JX,JY) = g(X,Y), \qquad \forall X,Y \in \mathfrak{X}(M).
+  \]
+  
+  تانسور 
+  $(0,2)$
+  (یعنی تانسوری که دو ورودیِ برداری می‌گیرد) $F$ را به شکل زیر تعریف می‌کنیم:
+  \[
+  F(X,Y) = g(X,JY)
+  \]
+  حالا ثابت کنید که:
+  \begin{parind}
+  	الف) $F$ پادمتقارن است.
+  	
+  	ب) $F$ به‌اصطلاح 
+  	\lr{$J$-invariant}
+  	 است؛ یعنی که 
+  	 $F(JX,JY) = F(X,Y)$
+  	
+  	برای ادامه‌ی سوال، فرض کنید که هموستار سازگار با متریکِ
+  	$\nabla$
+  	مفروض هست.
+  	
+  	ج) نشان دهید
+  	\[
+  	(\nabla_X F)(Y,Z) = g(Y,(\nabla_XJ)Z).
+  	\]
+  	
+  	د) نشان‌دهید
+  	\[
+  	g((\nabla_XJ)Y,Z)+ g(Y,(\nabla_XJ)Z) = 0.
+  	\]
+  \end{parind}
+
+
+\newpage
+\textbf{سوال سوم: محاسباتی در باب هموستار و ژئودزیک‌ها}
+
+\vspace{0.7em}
+فضای 
+$\mathbb{R}^3$
+ با متریک
+ $ds^2 = (1+x^2)dx^2 + dy^2 + e^z dz^2$
+ را به عنوان خمینه‌ی ریمانی معرفی می‌کنیم.
+ 
+\begin{parind}
+	الف) تمامی هموستار‌های لوی-چیویتا را پیدا کنید.
+	
+	ب) معادله‌ی ژئودزیک را حل کنید.
+	
+	ج) خم
+	$\gamma(t) = (x=t,y=t,z=t)$
+	 را درنظر داشته‌باشید. انتقالِ موازی هر بردار 
+	 $(a,b,c)$ در مبدا، در راستای این خم را پیدا کنید.
+	 
+	 د) آیا خم $\gamma$ خود ژئودزیک است؟
+	 
+	 ه)دو میدان‌برداری موازی 
+	 $X(t),Y(t)$
+	 روی 
+	 $\gamma$
+	 پیداکنید که 
+	 $g(X(t),Y(t))$
+	 ثابت باشد.
+\end{parind}
+
+\newpage
+\textbf{سوال چهارم: ساده و آموزشی درباره‌ی ژئودزیک}
+
+\vspace{0.7em}
+صفحه‌ی حقیقی با متریک اقلیدسی را به عنوان خمینه‌ی ریمانی معرفی می‌کنیم. آیا خم
+$\gamma(t) = (t^3,t^3)$
+یک ژئودزیک است؟
+
+از این تمرین چه درسی می‌توان گرفت؟
+
+
+\newpage
+\textbf{سوال پنجم: درباب ایزومتری‌ها}
+
+\vspace{0.7em}
+نیم‌صفحه بالایی اعداد مختلط 
+(
+$\mathbb{H}$
+)
+ به همراه متریک پوانکاره
+ $ds^2_{\text{\tiny Poincare}} = \frac{dz\wedge d\bar{z}}{\text{Im}^2(z)}$
+ یک خمینه‌ی ریمانی است. گروه 
+ $\text{SL}(2,\mathbb{R})$
+ به شکل زیر روی نقاط این خمینه‌ی مختلط
+ \footnote{خمینه‌های مختلط با حفظِ سمت، ریمانی هم هستند. بیشتر کارهایی که در خمینه‌های ریمانی انجام می‌دهیم تفاوت خاص و معناداری با خمینه‌های مختلط ندارد.}
+  اثر می‌کند.
+ \[
+ A = \begin{pmatrix}
+ 	a & b \\ c& d
+ \end{pmatrix} \in \text{SL}(2,\mathbb{R}), \qquad z \longmapsto \frac{az+b}{cz+d}
+ \]
+ نشان‌دهید که 
+  $\text{SL}(2,\mathbb{R})$
+  گروه ایزومتری‌های خمینه‌ی 
+  $(\mathbb{H},ds^2_{\text{\tiny Poincare}})$
+  است.
+
+\newpage
+\textbf{سوال ششم: فضاهای انحنا ثابت}
+
+\vspace{0.7em}
+خمینه‌ی 
+$(M,g_M)$
+را خمینه‌ای ریمانی با انحنای‌ثابت (
+\lr{Maximally symmetric space}
+)
+بگیرید. روی خمینه‌ی حاصل‌ضربی
+$M\times M$
+متریک 
+$\tilde{g}$
+را به شکل زیر تعریف می‌کنیم.
+\[
+\tilde{g}((X_1,Y_1),(X_2,Y_2)) = g_M(X_1,X_2) + g_M(Y_1,Y_2), \quad X_1,X_2,Y_1,Y_2 \in \mathfrak{X}(M)
+\]
+یعنی متریک به شکل زیر است:
+\[
+\tilde{g}_{AB} = g_M \oplus g_M = \begin{pmatrix}
+	g_M & 0 \\ 0 & g_M
+\end{pmatrix}
+\]
+آیا خمینه‌ی 
+$M\times M$
+یک فضای انحنا ثابت است؟
+
+
+\newpage
+\textbf{سوال هفتم:  درباب متریک روی خمینه‌های لی}
+
+\vspace{0.7em}
+گروهِ لیِ هایزنبرگ را به خاطر آورید.
+\[
+H = \Biggl\{
+\begin{pmatrix}
+	1 & x & y \\ 0 & 1 & z \\ 0 & 0 & 1
+\end{pmatrix} \; \Big| \; (x,y,z) \in \mathbb{R}^3
+\Biggr\}
+\]
+\begin{parind}
+	الف) متریک چپ‌ناوردای 
+	$g$ را روی گروهِ لی
+	$H$
+	حاصل کنید؛ برای این کار از پایه‌های دوگان به میدان‌های برداری چپ‌ناوردا استفاده کنید.
+	
+	ب) هموستار لوی-چیویتا را روی این خمینه پیدا کنید.
+	
+	ج) آیا
+	$(H,g)$
+	یک فضای انحنا ثابت است؟
+\end{parind}
+
+\newpage
+\textbf{سوال هشتم: باغ‌وحش عملگر‌ها روی خمینه‌ی ‌ریمانی}
+
+\vspace{0.7em}
+یک‌ریختی‌های موسیقایی را به خاطر آورید.
+\begin{equation*}
+	\begin{aligned}
+		\flat: T_pM \xrightarrow{\quad} T_p^*M , \qquad X& \xrightarrow{\qquad } X^\flat \\ 
+		X^\flat (Y&)= g(X,Y)
+	\end{aligned}
+\end{equation*}
+
+\begin{equation*}
+	\begin{aligned}
+		\sharp: T_p^*M   \xrightarrow{\quad} T_pM , \qquad \omega& \xrightarrow{\qquad } \omega^\sharp \\ 
+		\omega^\sharp (\xi&)= g^{-1}(\omega,\xi)
+	\end{aligned}
+\end{equation*}
+همچنین گرادیان تابع را به شکل 
+$\text{grad} f = (df)^\sharp$
+تعریف می‌کنیم. موارد زیر را پیدا کنید.
+\begin{parind}
+	الف) 
+	$g(\text{grad }f , X) = X[f]$
+	
+	ب)
+	$(\frac{\partial}{\partial x^i})^\flat$
+	
+	ج)
+	$(dx^i)^\sharp$
+	
+	د)
+	گرادیان تابع $f$ را در مختصات موضعی بنویسید.
+	
+	ه) نشان‌دهید که در فضای تخت سه‌بعدی، همان عبارت آشنای گرادیان بدست می‌آید.
+	 
+\end{parind}
+
+\newpage
+\textbf{سوال نهم:
+\lr{Operator Gymnastics}
+}
+
+\vspace{0.7em}
+فضای 
+$\mathbb{R}^n$
+ با متریک اقلیدسی یک خمینه‌ی ریمانی است. فرمِ حجم
+ $\omega = dx^1 \wedge \dots \wedge dx^n$
+ است.
+ \begin{parind}
+ 	الف) نشان دهید برای هر 
+ 	$\Omega_k \in \Lambda^k(\mathbb{R}^n)$
+ 	، تنها یک 
+ 	$(n-k)$-فرم
+ 	$\star\Omega_k$
+ 	وجود دارد که:
+ 	\[
+ 	\star\Omega_k (X_1 ,\dots ,X_{n-k}) \omega = \Omega_k \wedge X_1^\flat \wedge \dots \wedge X_{n-k}^\flat
+ 	\]
+ 	
+ 	ب) عملگر 
+ 	\lr{Hodge star}
+ 	\[
+ 	\star: \Lambda^k (\mathbb{R}^n) \longmapsto \Lambda^{n-k}(\mathbb{R}^n)
+ 	\]
+ 	مطابق قسمت قبلی تعریف می‌شود. نشان‌دهید که:
+ 	
+ 	\hspace{8mm}
+ 	ب۱) 
+ 	$\star^2 = (-1)^{k(n-k)}$
+ 	
+ 	\hspace{8mm}
+ 	ب۲)
+ 	$\star^{-1} = (-1)^{k(n-k)}\star $
+ 	
+ 	\hspace{8mm}
+ 	ب۳)
+ 	$\Omega_k \wedge (\star\Theta_k) = \Theta_k \wedge  (\star\Omega_k)$
+ 	
+ 	
+ج) عملگر 
+\lr{Codifferential}
+ (
+ $\delta : \Lambda^k(\mathbb{R}^n) \xrightarrow{\quad} \Lambda^{k-1} (\mathbb{R}^{n})$
+ )
+ به‌شکل زیر معرفی می‌شود:
+ \[
+ \delta = (-1)^{n(k+1)+1} \star d \star
+ \]
+ 
+ نشان‌دهید که 
+ $\delta^2=0$، این یعنی که عملگر‌فوق می‌تواند یک 
+ \lr{Cohomological complex}
+ برایمان بسازد.
+ 
+ د) لاپلاسی هم عملگری است که 
+ $\Delta: \Lambda^k(\mathbb{R}^n) \xrightarrow{\quad} \Lambda^{k} (\mathbb{R}^{n})$
+  و تعریف می‌شود:
+  \[
+  \Delta = (d+\delta)^2 = d\delta + \delta d
+  \]
+  نشان‌دهید برای هرتابع همواری مثل $f$ داریم:
+  \[
+  \Delta f = -\sum_{i=1}^n \frac{\partial^2 f}{\partial(x^i)^2}
+  \]
+ \end{parind}
+
+
+
+
+
+
+\newpage
+\textbf{سوال دهم:
+تعریف بردار کیلینگ
+\footnote{
+این اسم منسوب به آقای «ویلهلم کارل جوزف کیلینگ» است.
+}
+}
+
+\vspace{0.7em}
+میدان‌برداری هموارِ
+$X \in \mathfrak{X}(M)$  بردار کیلینگ است، اگر و فقط اگر 
+$\mathcal{L}_X g = 0$.
+
+\begin{mdframed}
+	با‌این تعریف شروع کنید:
+	
+	بردار $X$ یک بردار کیلینگ است اگر متریک $g$ تحت نگاشت 
+	\lr{pullback}
+	در راستای 
+	\lr{Integral curve}
+	این بردار، ثابت بماند.
+\end{mdframed}
+
+\newpage
+\textbf{سوال یازدهم:
+	میدان‌های برداری کیلینگ 
+	$\mathbb{R}^3$
+}
+
+\vspace{0.7em}
+نشان‌دهید که 
+جبر‌لی حقیقیِ تولید شده با
+\[
+\left<\partial_x , \partial_y , \partial_z , x\partial_y - y\partial_x, -y\partial_z + z\partial_y , z\partial_x - x\partial_z \right>
+\]
+میدان‌های برداری کیلینگ فضای 
+$\mathbb{R}^3$
+هستند.
+
+
+
+\newpage
+\textbf{سوال دوازدهم:
+	کمی درباره‌ی عملگر‌های الحاقی
+}
+
+\vspace{0.7em}
+خمینه‌ی ریمانی 
+$(M,g)$
+را فشرده فرض کنید.
+
+\begin{parind}
+	الف) نشان‌دهید که عملگر 
+	\lr{codifferential}
+	که در سوال نهم معرفی شده بود، الحاقیِ 
+	\LTRfootnote{Adjoint}
+	عملگر $d$ (مشتق خارجی) است، تحت ضرب‌ِداخلی القا شده با انتگرال‌گیری.
+	\[
+	\left< d\alpha,\beta \right> = 
+	\left< \alpha , \delta \beta \right> , \qquad \alpha,\beta \in \Lambda^r(M)
+	\]
+	
+	ب) عملگر لاپلاسی 
+	$\Delta = d\delta +\delta d$
+	تحت این ضرب‌داخلی، خودالحاقی
+	\LTRfootnote{Self-adjoint}
+	 است.
+	\[
+	\left< \Delta\alpha,\beta \right> = 
+	\left< \alpha , \Delta \beta \right>
+	\]
+
+\end{parind}
+\begin{mdframed}
+	ضرب‌داخلی فرم‌ها با کمک انتگرال‌گیری چنین تعریف می‌شود:
+	\[
+	\left< \alpha,\beta \right> = \int_M (\alpha \wedge \star \beta) , \qquad \alpha,\beta \in \Lambda^r(M)
+	\]
+	آیا می‌توانید بگویید شرط فشرده بودن خمینه‌ی $M$ کجا لازم است؟
+\end{mdframed}
+
+
+
+
+
+
+
+
+\end{document}

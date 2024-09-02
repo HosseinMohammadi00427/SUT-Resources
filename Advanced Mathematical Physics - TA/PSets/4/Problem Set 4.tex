@@ -1,0 +1,493 @@
+\documentclass{article}
+\usepackage{tcolorbox,mdframed}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fontspec}
+\usepackage{xepersian}
+\settextfont[]{XB Zar}
+\parindent 0mm
+\newenvironment{parind}{%
+	\par%
+	\medskip
+	\leftskip=0mm\rightskip=7mm
+	\noindent\ignorespaces}{%
+	\par\medskip}
+\newcommand{\mycomment}[1]{
+	
+}
+%\setlatintextfont{Linux Libertine}
+\setlength{\textwidth}{17.2 cm}
+\setlength{\evensidemargin}{1 cm}
+\setlength{\oddsidemargin}{-0.7 cm}
+\linespread{1.9}
+\title{ سری چهارم تمرینات درس ریاضی‌فیزیک پیشرفته - دکتر کریمی‌پور
+	\\
+	\vspace{-1em}
+	{\Large
+		خمینه‌های ریمانی - عملگرهای روی خمینه‌ها}
+		\\
+		
+}
+
+\author{موعد تحویل پاسخ‌ها:
+	دوشنبه ۱۴ خرداد سال ۱۴۰۳ - تا ساعت 23:59
+	\\
+	از طریق 
+	\href{https://cw.sharif.edu/}{سامانه درس‌افزار}
+	\\
+	دانشکده فیزیک - دانشگاه صنعتی شریف
+}\date{}
+
+\newcommand{\pardev}[2]{
+	\frac{\partial #1}{\partial #2}
+}
+
+\begin{document}
+	%\romantoday
+	\maketitle
+	
+	\def\endline{		{
+			\vspace{-2.5em}
+			\color{cyan}
+			\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+	}}
+	\def\thinendline{		{
+			\vspace{-2.5em}
+			\color{purple}
+			\begin{center} \linethickness{0.5mm}\line(1,0){500} \end{center}
+	}}
+	\vspace{-1.5em}
+	\endline
+	
+	\vspace{-1em}
+	\noindent
+	\textbf{سوال اول:}
+ثابت‌کنید که 
+$\frac{O(n)}{O(k)\times O(n-k)}$
+یک فضای همگن است که با 
+$G_k(\mathbb{R}^n)$
+(یعنی فضای ابرصفحه‌های 
+$k$-بعدی
+که از مرکز فضای 
+$\mathbb{R}^n$
+می‌گذرند
+\footnote{همان خمینه‌های گراسمانی که در درس ‌هم با آن آشنا شده‌اید.}
+)
+دیفئومورفیک است. برای حالتِ خاص 
+$k=1$
+، بررسی را مجددا انجام دهید. به کدام فضای آشنا می‌رسید؟
+	
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال دوم:}
+	یک هموستارِ خطی
+	\LTRfootnote{Linear connection}
+	مثل 
+	$\nabla$
+	روی خمینه‌ی ریمانی 
+	$M$ فرض کنید. همیوغِ این هموستار را با 
+	$\widehat{\nabla}$
+	نشان می‌دهیم و به شکل زیر معرفی می‌کنیم:
+	\[
+	\widehat{\nabla}_XY = \nabla_YX +[X,Y]
+	\]
+	\begin{parind}
+		الف) نشان دهید که 
+		$\widehat{\nabla}$
+		یک هموستار خطی است.
+		
+		ب)مولفه‌های 
+		$\widehat{\Gamma}^i_{jk}$
+		(مربوط به هموستار
+		$\widehat{\nabla}$
+		)
+		را از روی هموستارِ
+		${\nabla}$
+		بدست آورید.
+	\end{parind}
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\noindent
+	\textbf{سوال سوم:}
+	هموستارِ خطیِ
+	$\nabla$ را روی 
+	$\mathbb{R}^2$
+	با مولفه‌های 
+	$\Gamma^1_{12} = \Gamma^1_{21}=1$
+	در نظربگیرید. سایر مولفه‌های هموستار صفرند. 
+	\begin{parind}
+		الف) معادله‌ی ژئودزیک را بنویسید و حل کنید.
+		
+		ب) آیا با این هموستار، خمینه یک خمینه‌یِ کامل 
+		\LTRfootnote{Complete}
+		است؟
+		
+		ج) ژئودزیک با شرایط اولیه‌ی زیر را پیدا کنید.
+		\begin{equation*}
+			\begin{aligned}
+				\sigma(0) &= (2,1) \\ \sigma'(0) &= (1,1)
+			\end{aligned}
+		\end{equation*}
+		
+		د)اگر 
+		$\sigma$
+		و 
+		$\tilde{\sigma}$
+		دو ژئودزیک باشند که 
+		$\sigma(0) = \tilde{\sigma}(0)$
+		و 
+		$\sigma'(0) = k\tilde{\sigma}'(0)$
+		و
+		$k\in \mathbb{R}$
+		، ثابت کنید که برای هر $t$ داریم 
+	.	$\sigma(t) = \tilde{\sigma}(kt)$.
+		
+	\end{parind}
+	
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال چهارم:}
+	$J$ را ساختارِ تقریبا مختلط
+	\LTRfootnote{Almost complex structure}
+	روی خمینه‌ی ریمانی $M$ در نظر بگیرید
+	\footnote{برای فهم بهتر سوال به آخرین جلسه‌ی حل تمرین نگاهی کنید.}
+	. هم‌چنین $\nabla$ هموستاری خطی است 
+	\footnote{از آقای هومن ساوه برای یادآوری اشکالات در صورت سوال سپاسگزارم.}
+	که تانسور \lr{torsion} آن صفر است. به این هموستار اصطلاحا یک هموستار 
+	\lr{torsionless}
+	می‌گوییم.  هموستارِخطی 
+	$\tilde{\nabla}$ را به شکل زیر تعریف می‌کنیم.
+	\[
+	\tilde{\nabla}_XY = \nabla_XY - \frac14\Big(
+	(\nabla_{JY} J) X -J (\nabla_Y J)X + 2J (\nabla_XJ)Y
+	\Big).
+	\]
+	\begin{parind}
+
+		 الف) نشان‌دهید که 
+		 $J\nabla_XJ = - (\nabla_XJ)J$.
+		
+		ب) تانسور 
+		$T_{\tilde{\nabla}}$، یعنی تانسور 
+		\lr{torsion}
+		هموستار
+		$\tilde{\nabla}$، را برحسب
+		تانسور 
+		\lr{Nijenhuis}
+		بدست آورید. 
+		
+	\end{parind}
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال پنجم:}
+	$X_1$ 
+	و
+	$X_2$
+	را میدان‌های برداری مختصاتی یک خمینه‌ی ریمانی دوبعدی درنظر بگیرید. نشان‌دهید که یک مختصات 
+	\lr{isothermal}
+	با همان دامنه‌ی تعریف و همان خم‌های مختصه ثابت، وجود دارند، اگر و تنها اگر 
+	$X_2X_1 \Big(\log(\frac{g_{11}}{g_{22}})\Big) =0$
+	برقرار باشد.
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال ششم: متریک روی 
+	$\mathbf{S^n}$}
+	
+	نگاشت
+	$\varphi_n : [-\frac{\pi}{2},\frac{\pi}{2}] \times [-\pi,\pi] \xrightarrow{} \mathbb{R}^{n+1}$
+	را به شکل زیر تعریف می‌کنیم.
+	\begin{equation*}
+		\begin{aligned}
+			\begin{cases}
+				x^1  = \sin \theta^1 \\	
+				x^j = \Big(
+				\prod_{j=1}^{i-1} \cos \theta^j
+				\Big)	\sin \theta^i, & \quad i=2,\dots,n
+				\\
+				x^{n+1} = \prod_{j=1}^{n} \cos\theta^j		
+			\end{cases}
+		\end{aligned}
+	\end{equation*}
+	که در آن
+	$-\frac{\pi}{2} \leq \theta^i \leq \frac{\pi}{2}$ , $ -\pi \leq \theta^n \leq \pi$.
+	
+نشان دهید که:
+\begin{parind}
+	الف) تصویر این نگاشت کره‌ی 
+	$n$-بعدی است.
+	
+	ب) تحدید کردن این نگاشت به 
+	$(-\frac{\pi}{2},\frac{\pi}{2})^n$
+	 یک دیفئومورفیسم به یک زیرمجموعه‌ی باز از کره به‌دست می‌دهد.
+	 
+	 ج) با 
+	 \lr{pullback}
+	 کردن متریک اقلیدسیِ
+	 $\mathbb{R}^n$
+	 ، متریک استاندارد کره،
+	 $g^{(n)}_{\text{\tiny Sphere}}$
+	 ،
+	 بدست می‌آید.
+	 \[
+	 g^{(n)}_{\text{\tiny Sphere}} = \sum_{i=1}^{n} \Big(
+	 \prod_{j=1}^{i-1} \cos^2 \theta^j
+	 \Big) (d\theta^i)^2, \qquad \forall n\geq 1,
+	 \]
+	 (با شرط
+	 $\prod_{j=1}^{k} \cos^2 \theta^j = 1$
+	  وقتی که 
+	  $k<1$.
+	 )
+\end{parind}
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال هفتم:}
+	خمینه‌ی ریمانی 
+	$M$ و هموستار
+	لوی-چیویتا را درنظربگیرید.  اتحادِ
+	\lr{Koszul}
+	را ثابت کنید.
+	\begin{equation*}
+		\begin{aligned}
+				2g(\nabla_XY,Z) &= Xg(Y,Z) + Y g(Z,X) - Z g(X,Y) \\ &+ g([X,Y],Z) - g([Y,Z],X) + g([Z,X],Y)
+		\end{aligned}
+	\end{equation*}
+	که در آن 
+	$X,Y,Z \in \mathfrak{X}(M)$.
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال هشتم:}
+	با مثالی نشان‌دهید که خمینه‌ای ریمانی وجود دارد که فاصله‌ی بین نقاطش کراندار باشد
+	\footnote{
+	یعنی برای هر دونقطه‌ی 
+	$p,q\in M$
+	، فاصله‌ی این دونقطه،
+	$d(p,q)$
+	، از عدد حقیقی و مثبت 
+	$r\in \mathbb{R}$
+	کوچکتر باشد.
+	}
+	؛ اما ژئودزیکی با طول بی‌نهایت داشته باشد که خودش را قطع نکند.
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال نهم:}
+	در کلاسِ حل‌تمرین دیدیم که نیم‌صفحه بالایی اعداد مختلط با متریک پوانکاره یک خمینه ریمانی (و حتی مختلط) است و همچنین گروه ایزومتری‌های این خمینه را شناختیم. 
+	
+	\begin{parind}
+		الف) اول از همه، نشان‌دهید که ژئودزیک‌های این خمینه، نیم‌دایره‌های عمود بر محور حقیقی، یا خط‌های موازی با محور موهومی هستند.
+		
+		ب)نشان‌دهید که تحت اثر گروه 
+		$\text{SL}(2,\mathbb{R})$
+		، ژئودزیک‌های این فضا به ژئودزیک‌ها نگاشته می‌شوند.
+	\end{parind}
+	
+	\newpage
+	\textbf{راهنمایی:}
+	هرماتریس از گروه 
+	$\text{SL}(2,\mathbb{R})$
+	را می‌توانیم به شکل حاصل‌ضرب سه ماتریس $KAN$ بنویسیم که 
+	$K \in \text{SO}(2)$
+	، $A$ ماتریسی قطری با دترمینان یک است و همچنین $N$ هم ماتریسی بالا قطری است. برای اطلاع بیشتر به 
+	\href{https://en.wikipedia.org/wiki/Iwasawa_decomposition}{این صفحه}
+	مراجعه کنید.
+	
+	
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال دهم:}
+	
+	خمینه‌ی $M$ را یک خمینه‌ی ریمانی بگیرد.
+	
+	\begin{parind}
+		الف) اگر $f$ یک ایزومتری این خمینه باشد و $\nabla$ هموستار لوی-چیویتا، نشان‌دهید که
+		\[
+		f^* \nabla_{e_j} \beta = \nabla_{f^{-1}.e_j} f^*\beta , \qquad \beta \in \Lambda^1M
+		\]
+		
+		ب)
+		نشان‌دهید که عملگر 
+		\lr{Codifferential}
+		\footnote{که در کلاس‌ِ حل‌تمرین‌ هم به دقت بررسی شد.}
+		با ایزومتری‌ها جابه‌جا می‌شود؛ یعنی
+		$f^* \delta \beta = \delta f^*\beta$
+		
+		(تعریف 
+		$\delta \beta = -\sum_{k} i_{e_k} \nabla_{e_k} \beta$
+		برای حل این سوال مناسب‌تر است.
+		)
+		
+	\end{parind}
+	
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال یازدهم:}
+	گروه لیِ 
+	\[
+	G = \Biggl\{
+	\begin{pmatrix}
+		1 & 0 \\ x & y
+	\end{pmatrix} \; \Big| \; x,y\in \mathbb{R} , y>0
+	\Biggr\}
+	\]
+	را در نظر بگیرید.
+	\begin{parind}
+		الف) مولد‌های جبرِلیِ این گروه را پیدا کنید.
+		
+		ب)متریک چپ‌ناوردای این گروه را که از پایه‌های دوگانِ میدان‌های برداری چپ‌ناوردا ساخته می‌شود، بسازید
+		\footnote{نمونه همین سوال در کلاس حل‌تمرین بررسی شده، برای یادگرفتن مفاهیم این سوال به آخرین جلسه حل تمرین رجوع کنید.}
+		.
+		
+		ج) هموستارِ
+		لوی-چیویتا را به کمک اتحاد
+		\lr{Koszul}
+		بدست آورید.
+		
+		د) آیا این فضا، یک فضای انحنا ثابت است؟
+	\end{parind}
+	
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال دوازدهم:}
+	روی خمینه‌ی 
+	$\mathbb{R}^3$
+	با متریک اقلیدسی، تعاریف زیر را ببینید
+	\footnote{در مورد عملگر‌های موسیقایی، 
+	$\flat,\sharp$ در کلاس حل‌تمرین حرف‌زده‌ایم.}
+	.
+	این تعاریف تعمیم عملگرهای 
+	\lr{Curl}
+	و 
+	\lr{Divergence}
+	هستند.
+	\newpage
+		\begin{equation*}
+		\begin{aligned}
+			\text{div} X &= \text{div} X^\flat = - \delta X^\flat = \star d \star X^\flat , \quad X \in \mathfrak{X}(\mathbb{R}^3) 
+			\\ 
+			\text{curl} X &= (\star dX^\flat)^\sharp.
+		\end{aligned}
+	\end{equation*}
+اتحاد‌های زیر را ثابت کنید
+\footnote{از خانم زینب ایوبی برای یادآوری اشتباهات  در ترتیب نوشتن عملگرها، سپاسگزاری می‌کنم.}
+.
+\begin{parind}
+	الف
+	\footnote{برای تعریف گرادیان به آخرین جلسه‌ی حل تمرین رجوع کنید.}
+	) 
+	$\text{\lr{curl grad}}\; f =0$
+	
+	ب)
+	$\text{\lr{div curl}}\; X=0$
+	
+	ج) 
+	$\Delta \omega = -(\text{\lr{grad div} }\; \omega^\sharp + \text{\lr{curl curl} }\; \omega^\sharp)^\flat , \quad \omega \in \Lambda^1 \mathbb{R}^3$
+	
+	د
+	\footnote{در اینجا منظور از 
+	$\times$، 
+	همان ضرب خارجی بردارهاست.}
+	)
+	$\text{\lr{curl} }\;(fX) = (\text{\lr{grad}}\; f)\times X + f\; \text{\lr{curl}}\; X $.
+	
+	ه)
+	$\text{\lr{div} }\;(fX) = (\text{\lr{grad}} f). X + f \;\text{\lr{div}} X $
+	
+	و
+	\footnote{منظور از نقطه، ضرب داخلی دوبردار است.}
+	) 
+	$\text{\lr{div}} (X\times Y) = X. \text{\lr{curl} }\;Y + (\text{\lr{curl}}\; X).Y$
+\end{parind}
+	
+	
+	\vspace{-1em}
+	\endline
+	
+		\vspace{-1em}
+	\textbf{سوال سیزدهم:}
+	نشان‌دهید که عملگر 
+	$\Delta = d\delta + \delta d$
+	 و عملگر $\star$
+	 \LTRfootnote{Hodge star}
+	 با هم جابه‌جا می‌شوند. آیا محاسبات شما به جهت‌پذیر بودن خمینه حساس است
+	 \footnote{برای فهمِ تعریف عملگر لاپلاسی برحسب عملگر های $d$ و $\delta$ به آخرین کلاس حل ‌تمرین رجوع کنید. در کلاس، شما عملگر $\delta$‌را با نمادِ
+	 $d^\dagger$
+	 شناختید، که همیوغ بودن این عملگر(تحت ضربِ فرمهای هم‌رتبه با هم) با $d$ را بهتر می‌رساند.}
+	 \footnote{محاسبات ساده‌یِ این سوال به جهت‌پذیری خمینه بستگی ندارد، تنها دلیلی که جهت‌پذیری خمینه در این سوال قید شده، این است که جهت‌پذیری خمینه، به ما کمک می‌کند که برای چینش فرمها در کنار هم یک انتخاب طبیعی داشته باشیم. در غیراین‌صورت، تغییری در حل سوال حاصل نمی‌شود، اما باید تغییراتی در تعریف عملگر ستاره‌یِ
+	 \lr{Hodge}
+	 ایجاد شود که این تغییر به گروه  \lr{Holonomy} خمینه بستگی دارد. از خانم زینب ایوبی برای توجه به این نکته سپاسگزارم.}
+	 ؟
+	
+	
+	\vspace{-1em}
+	\endline
+	
+	\newpage
+		\vspace{-1em}
+	\textbf{سوال چهاردهم:}
+	خمینه‌ی ریمانی $M$ را مجهز به متریک زیر بگیرید.
+	\[
+	g= g_{ij} dx^i \otimes dx^j + g_{nn} dx^n \otimes dx^n, \quad i,j = 1,2 , \dots , n-1.
+	\]
+	هم‌چنین
+	$\frac{\partial g_{ij}}{\partial x^n} = 0$
+	و 
+	$g_{nn}$
+	عددی ثابت است
+	\footnote{باز هم از خانم زینب ایوبی ممنون برای تذکرشون.}
+	.
+	نشان‌دهید که هر ژئودزیک ابررویه‌ی 
+	$x^n=0$، ژئودزیکی از 
+	$M$ هم هست
+	\footnote{این دقیقا همان چیزی است که مختصات تعمیم یافته‌ی 
+	\lr{Fefferman-Graham}
+	را برای محاسبات هولوگرافیک مناسب می‌کند. یعنی می‌توانیم خمینه‌مان را به برگ‌های ژئودزیک
+	\lr{Geodesic leafs}
+	، برگ‌بندی کنیم.
+	}
+	.
+	
+	
+	\vspace{-1em}
+	\endline
+
+	
+\end{document}
+
+
+
+

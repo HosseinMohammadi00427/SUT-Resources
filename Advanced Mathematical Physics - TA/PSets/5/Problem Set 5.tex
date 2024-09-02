@@ -1,0 +1,229 @@
+\documentclass{article}
+\usepackage{tcolorbox,mdframed}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fontspec}
+\usepackage{xepersian}
+\settextfont[]{XB Zar}
+\parindent 0mm
+\newenvironment{parind}{%
+	\par%
+	\medskip
+	\leftskip=0mm\rightskip=7mm
+	\noindent\ignorespaces}{%
+	\par\medskip}
+\newcommand{\mycomment}[1]{
+	
+}
+%\setlatintextfont{Linux Libertine}
+\setlength{\textwidth}{17.2 cm}
+\setlength{\evensidemargin}{1 cm}
+\setlength{\oddsidemargin}{-0.7 cm}
+\linespread{1.9}
+\title{ سری پنجم(آخر) تمرینات درس ریاضی‌فیزیک پیشرفته - دکتر کریمی‌پور
+	\\
+	\vspace{-1em}
+	{\Large
+		گروه‌های کوهمولوژی و کوهمولوژی
+		\lr{De-Rham}
+		}
+		\\
+		
+}
+
+\author{موعد تحویل پاسخ‌ها:
+	یک‌هفته پس از مهلت آخرین سری تمرین‌ها - تا ساعت 23:59
+	\\
+	از طریق 
+	\href{https://cw.sharif.edu/}{سامانه درس‌افزار}
+	\\
+	دانشکده فیزیک - دانشگاه صنعتی شریف
+}\date{}
+
+\newcommand{\pardev}[2]{
+	\frac{\partial #1}{\partial #2}
+}
+
+\begin{document}
+	%\romantoday
+	\maketitle
+	
+	\def\endline{		{
+			\vspace{-2.5em}
+			\color{cyan}
+			\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+	}}
+	\def\thinendline{		{
+			\vspace{-2.5em}
+			\color{purple}
+			\begin{center} \linethickness{0.5mm}\line(1,0){500} \end{center}
+	}}
+\textbf{
+دقیقا به دو سوال از سوال‌های زیر پاسخ بدهید.
+}
+	\vspace{-1.5em}
+	\endline
+
+	\vspace{-3em}
+	\noindent
+	\textbf{سوال اول:}
+		زیرمجموعه‌یِ بازِ
+		$ U \subset \mathbb{R}^n$
+		 ستاره‌ای-شکل
+		\LTRfootnote{Star-shaped}
+		است که صفر را در بر دارد. 
+		\lr{$p$}-فرمِ بسته‌ی 
+		$\omega = \sum \omega_I dx^I$
+		روی $U$ تعریف شده است
+		\footnote{$I$ مجموعه‌ای از $p$ اندیس است که به دلخواه مرتب شده است.}
+		. 
+		نشان‌دهید 
+		$(p-1)$- فرمِ
+		$\eta$ در رابطه
+		$d\eta = \omega$
+		صدق می‌کند.
+		\begin{equation*}
+			\begin{aligned}
+				\sum_I \sum_{q=1}^{p} (-1)^{q-1} \Big(
+				\int_0^1 t^{p-1} \omega_I(tx) dt\Big) x^{i_q} dx^{i_1} \wedge dx^{i_2}\wedge\dots\wedge \widehat{dx^{i_q}} \wedge\dots \wedge dx^{i_p}
+			\end{aligned}
+		\end{equation*}
+
+	درحقیقت، با این‌کار قضیه پوانکاره را نشان می‌دهید؛ یعنی هر فرمِ بسته روی زیرفضایِ بازِ 
+	$\mathbb{R}^n$
+	(با گروه‌های همولوژی بدیهی)
+	یک فرمِ کامل است. 
+	\vspace{-3em}
+	\endline
+	
+	\vspace{-3em}
+	\textbf{سوال دوم:}
+	خمینه‌های هموار
+	$M_1$و $M_2$ را خمینه‌هایی همبند، فشرده و جهت‌پذیر با بعدِ $n\geq 2$ درنظر بگیرید.
+	نشان‌دهید که 
+	\[H^k_{\text{dR}}(M_1\# M_2) = H^k_{\text{dR}}(M_1) \oplus H^k_{\text{dR}}(M_2).\]
+	(
+	برای
+	$0<k<n$.
+	)
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\noindent
+	\textbf{سوال سوم:}
+	$M$ را خمینه‌ای هموار بگیرید و
+	فرم‌های 
+	$\omega \in \Lambda^p(M)$
+	و
+	$\eta \in \Lambda^q(M)$
+	 مفروض هستند.
+	 اول نشان‌دهید که کلاسِ کوهمولوژیِ فرم 
+	 $\omega \wedge \eta$
+	  تنها به کلاسِ کوهمولوژیِ 
+	  $\eta$ و‌$\omega$
+	   بستگی دارد.  بنابراین نگاشتِ 
+	    $\smile : H^p_{\text{dR}}(M_1) \times H^q_{\text{dR}}(M_1) \xrightarrow{\quad} H^{p+q}_{\text{dR}}(M_1)$
+	    با تعریفِ
+	    \newpage
+	    \[
+	    [\omega] \smile [\eta] = [\omega \wedge \eta]
+	    \]
+	    خوش‌تعریف است. به این ضرب، 
+	    \lr{Cup product}
+	    گفته می‌شود.
+	    
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال چهارم: بدست آوردن گروه‌های کوهمولوژی}
+	\begin{parind}
+		الف)
+		تمامی گروه‌های کوهمولوژی فضای 
+		$\mathbb{R}^2 - \{p_1,p_2\}$
+		را حساب کنید. (یعنی صفحه‌ی حقیقی که دو نقطه‌ی دلخواه از آن حذف شده اند.)
+		
+		ب)
+		گروه‌های کوهمولوژی ناحیه‌ی 
+		\[M= \biggl\{
+		(x,y) \in \mathbb{R}^2 \; | \; 1 < \sqrt{x^2+y^2} <2
+		\biggr\}
+		\]
+		را بدست بیاورید.( از این نکته استفاده کنید که اگر بین دو خمینه‌ی هموار یک هموتوپی باشد، آن‌گاه تحت \lr{pullback} کردن‌ کلاس‌های کوهمولوژی با هموتوپی بین این دو خمینه، گروه‌های کوهمولوژی دو خمینه یک‌ریخت هستند. سپس، یک هموتوپی بین ناحیه‌ی حلقوی بالا و صفحه با یک سوراخ معرفی کنید.)
+		
+		
+		\vspace{-1em}
+		\endline
+	\end{parind}
+	\vspace{-1em}
+	\textbf{سوال پنجم:}
+	با فضای 
+	$\mathbb{C}P^n$ آشنا هستید و مختصات‌های روی آن را دیده‌اید. اما به عنوان یادآوری نگاهی به آن بیندازیم:
+	\begin{mdframed}
+		بازِ
+		$U_\alpha$ را  که با مختصات
+		 $z_i\neq 0$
+		 برای
+		 $i =  \alpha$
+		 تعریف می‌شود، به یاد آورید. مختصات‌های بهنجارِ
+		 $u^j = z^j/z^\alpha$ 
+		 و 
+		 $v^j = z^j/z^\beta$
+		 روی دو بازِ
+		 $(U_\alpha,U_\beta)$
+		 تعریف کنید.
+		 
+		 رویِ 
+		 $U_\alpha$
+		 و
+		 $U_\beta$
+		 ، دو-فرم‌های زیر را تعریف می‌کنیم:
+		 \begin{equation*}
+		 	\begin{aligned}
+		 		\omega_\alpha &= -i \Big(
+		 		\frac{\sum_{j} du^j \wedge d\bar{u}^j}{\varphi} - \frac{\sum_{j,k}u^j\bar{u}^k du^k \wedge d\bar{u}^j}{\varphi^2}
+		 		\Big) \\
+		 		\omega_\beta &= -i \Big(
+		 		\frac{\sum_{j} dv^j \wedge d\bar{v}^j}{\psi} - \frac{\sum_{j,k}v^j\bar{v}^k dv^k \wedge d\bar{v}^j}{\psi^2}
+		 		\Big), \\ 
+		 	\end{aligned}
+		 \end{equation*}
+		 که در آن‌ها
+		 $\varphi = \sum_{j=0}^{n} u^j \bar{u}^j$
+		   و
+		   $\psi = \sum_{j=0}^{n} v^j \bar{v}^j$.
+	\end{mdframed}
+	\begin{parind}
+		الف) نشان‌دهید که تحدید این دو-فرم‌ها به ناحیه‌ی اشتراک، یکسان است.
+		\[
+		\omega_\alpha \Big|_{U_\alpha \cap U_\beta} = \omega_\beta \Big|_{U_\alpha \cap U_\beta}
+		\]
+		
+		\newpage
+		ب) یک 2-فرمِ یکتا رویِ
+		$\mathbb{C}P^n$
+		هست، که آن را 
+		$\omega$
+		 می‌نامیم. با این خاصیت که 
+		 $\omega\Big|_{U_\alpha} = \omega_\alpha$.
+		 
+		 ج) $d\omega=0$
+		 
+		 د) 
+		 $\wedge_n \omega$
+		 یک فرمِ حجم است.
+		 
+		 ه) $\omega$ یک فرمِ کامل نیست. 
+	\end{parind}
+		\vspace{-1em}
+	\endline
+\end{document}
+
+
+
+

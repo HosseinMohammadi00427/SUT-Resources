@@ -1,0 +1,307 @@
+\documentclass{article}
+\usepackage{tcolorbox,mdframed}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{fontspec}
+\usepackage{xepersian}
+\settextfont[]{XB Zar}
+\parindent 0mm
+
+\newcommand{\mycomment}[1]{
+	
+}
+%\setlatintextfont{Linux Libertine}
+\setlength{\textwidth}{17.2 cm}
+\setlength{\evensidemargin}{1 cm}
+\setlength{\oddsidemargin}{-0.7 cm}
+\linespread{1.9}
+\title{ سری سوم تمرینات درس ریاضی‌فیزیک پیشرفته - دکتر کریمی‌پور
+	\\
+	\vspace{-1em}
+	{\Large
+		خمینه‌ها (جهت‌پذیری و انتگرال‌گیری فرمها) - گروه‌های لی}
+		\\
+		
+}
+
+\author{موعد تحویل پاسخ‌ها:
+	دوشنبه ۳۱ اردیبهشت سال ۱۴۰۳ - تا ساعت 23:59
+	\\
+	از طریق 
+	\href{https://cw.sharif.edu/}{سامانه درس‌افزار}
+	\\
+	دانشکده فیزیک - دانشگاه صنعتی شریف
+}\date{}
+
+\newcommand{\pardev}[2]{
+	\frac{\partial #1}{\partial #2}
+}
+
+\begin{document}
+	%\romantoday
+	\maketitle
+	
+	\def\endline{		{
+			\vspace{-2.5em}
+			\color{cyan}
+			\begin{center} \linethickness{1mm}\line(1,0){500} \end{center}
+	}}
+	\def\thinendline{		{
+			\vspace{-2.5em}
+			\color{purple}
+			\begin{center} \linethickness{0.5mm}\line(1,0){500} \end{center}
+	}}
+	\vspace{-2em}
+	\endline
+	
+	\noindent
+	\textbf{تمرینات کلاسی:}\\
+	\textbf{۱) اتحادهای ضرب خارجی}
+	
+	\noindent
+	(
+	در این روابط
+	$\alpha \in \Lambda^p (\mathcal{M})$
+	و 
+	$\beta \in \Lambda^q (\mathcal{M})$
+	و دیفئومورفیسم 
+	$f:\mathcal{N} \longmapsto \mathcal{M}$
+	مفروض‌اند.)
+	\begin{equation}
+		\begin{aligned}
+			\text{d}(\alpha \wedge \beta) &= \text{d}\alpha \wedge \beta + (-1)^p \alpha \wedge \text{d}\beta \\
+			f_*(\alpha \wedge \beta) &= f_*(\alpha) \wedge f_*(\beta) \\
+			\text{d}(f_*(\alpha))                     &= 	f_*(\text{d}\alpha)
+		\end{aligned}
+	\end{equation}
+	
+	\vspace{-1em}
+	
+	
+	\thinendline
+	\vspace{-1em}
+	\textbf{۲) اتحاد‌های ضرب داخلی}
+	\begin{equation}
+		\begin{aligned}
+			\mathcal{L}_{X}\omega &= \text{d}(\iota_X\omega)  + \iota_X\text{d}\omega \\ 
+			\iota_{[X,Y]} &= [\mathcal{L}_X,\iota_Y]
+		\end{aligned}
+	\end{equation}
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال اول:}
+	با مطالعه‌ی تبدیلات بی‌نهایت کوچک گروه‌های زیر، تعداد پارامترها و پایه‌های جبر لی را پیدا کنید.
+	\begin{equation*}
+		\begin{aligned}
+			O(n),\; SO(n),\; U(n),\; SU(n),\;\text{GL}(n,\mathbb{R}),\; \text{GL}(n,\mathbb{C}) ,\; \text{SL}(n,\mathbb{R}),\; \text{SL}(n,\mathbb{C})
+		\end{aligned}
+	\end{equation*}
+	
+	
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-1em}
+	\textbf{سوال دوم:}
+	
+	 \lr{Homeomorphism} 
+	 بین خمینه‌های زیر را ثابت کنید
+	 
+	\begin{equation*}
+		\begin{aligned}
+			\frac{\text{SO}(3)}{\text{SO}(2)} &\cong S^2 \\
+			\vspace{-1em}
+			\frac{\text{SO}(n+1)}{\text{SO}(n)} &\cong S^n\\
+			\frac{U(n+1)}{U(n)} &\cong S^{2n+1}\\
+			\frac{\text{SU}(n+1)}{\text{SU}(n)} &\cong S^{2n+1}\\
+			\frac{O(n+1)}{O(1)\times O(n)}	&\cong \mathbb{R}\text{P}^n\\
+		\end{aligned}
+	\end{equation*}
+	\vspace{-1em}
+	\endline
+	
+	\vspace{-2em}
+	\noindent
+	\textbf{سوال سوم:}
+اگر 
+$0<k< \min(m,n)$
+باشد، نشان دهید مجموعه ماتریس‌های 
+$m\times n$
+با رتبه‌ی \underline{حداقل} 
+$k$
+ یک زیرخمینه از 
+$M(m\times n , \mathbb{R})$
+است
+\footnote{منظور از 
+$M(m\times n , \mathbb{R})$
+، مجموعه‌ی تمامی ماتریس‌های 
+$m\times n$ 
+با درایه‌های حقیقی است.
+}
+.  نشان دهید اگر قید "حداقل" با "مساوی" جایگزین شود، خمینه‌ی حاصل    زیرخمینه‌ی
+$M(m\times n , \mathbb{R})$
+نیست.
+	
+	\vspace{-1em}
+	\endline
+	
+	\noindent
+	\textbf{سوال چهارم:}
+	 نشان دهید که موارد زیر گروه لی هستند. 
+	  
+	  \noindent
+	\text{الف) هر فضای برداری حقیقی متناهی بعد با عمل جمع میان بردارها.}\\
+	\noindent
+	\text{ب) فضای   
+		$T^n = \underbrace{S^1 \times \dots \times S^1}_{\text{$n$ بار}}$
+		   . (راهنمایی: آیا حاصل ضرب گروه‌های لی، یک گروه لی است؟)}\\
+	ج) 
+		$\text{Aut}(V)$
+		 که $V$ فضای برداری متناهی بعد روی
+		 $\mathbb{R}$
+		 یا
+		 $\mathbb{C}$
+		 است
+		 		 \footnote{
+		 	منظور از 
+		 	$\text{Aut}(V)$
+		 	، تمامی خودریختی‌های
+		 	(\lr{Automorphism})
+		 	فضای برداری $V$ است؛ یعنی نگاشت‌های دوسویی فضای برداری که مبدا و مقصد آن خود 
+		 	$V$ است.
+		 }
+		 . (عمل ضرب گروه، ترکیب است.)\\
+	د) 
+		$
+			K = \mathbb{R}^n \times GL(n,\mathbb{R}) , n>1
+		$
+		با ضرب نیمه‌مستقیم گروهی
+		\footnote{مشابه این ضرب را در ساختن گروه پوانکاره از گروه لورنتز می‌بینیم.}
+		؛ یعنی 
+		$\forall A,A' \in  GL(n,\mathbb{R}), \quad x,x'\in \mathbb{R}^n$ 
+		\[
+			(x,A)(x',A')= (x+Ax',AA') 
+		\]
+	
+	
+	\vspace{-2em}
+	\endline
+	
+	\newpage
+	\vspace{-2em}
+	\textbf{سوال پنجم:}
+		$\psi: G \mapsto G$
+		  یک دیفیومورفیسم از گروه لی $G$ به خودش است. طوری که 
+		  \[
+		  \forall a \in G, \quad \psi(a) = a^{-1}
+		  \]
+		  نشان دهید $\omega$ فرم چپ-‌ناورداست اگر و تنها اگر 
+		  $\psi_*\omega$ فرم راست-‌ناوردا باشد.
+	
+	\vspace{-2em}
+	\endline
+	
+	
+	\noindent
+	\textbf{سوال ششم: }
+	
+	\noindent
+	فرم دیفرانسیل زیر را در فضای 
+	$\mathbb{R}^3$
+	 در نظر بگیرید:
+	\begin{equation*}
+		\omega = (z-x^2-xy) \text{d}x\wedge\text{d}y - \text{d}y\wedge\text{d}z - \text{d}z\wedge\text{d}x
+	\end{equation*}
+	هم‌چنین دیسک دوبعدی را به شکل زیر تعریف می‌کنیم.
+	\begin{equation*}
+		D = \{(x,y) \in \mathbb{R}^2 \;|\; x^2 + y^2 \leq 1\} 
+	\end{equation*}
+	و نگاشت شمول
+	\LTRfootnote{Inclusion}
+	،
+	$i:D\longmapsto \mathbb{R}^3$
+	مفروض است (این نگاشت شمول، دیسک دو بعدی را روی صفحه‌ی 
+	$z=0$
+	می‌نشاند.)
+	
+	\text{انتگرال زیر را محاسبه کنید.}
+	\begin{equation*}
+		\int_{D}^{} i_*\omega
+	\end{equation*}
+	
+	\vspace{-2em}
+	\endline
+	
+	\textbf{سوال هفتم:}
+	۲-فرم زیر را درنظر بگیرید.
+		\begin{equation*}
+		\alpha = \frac{x\text{d}y\wedge\text{d}z - y\text{d}x\wedge\text{d}z + z\text{d}x\wedge\text{d}y}{(x^2 + y^2 + z^2)^\frac32} \in \Lambda^2(\mathbb{R}^3 - \{0\})
+\end{equation*}
+
+الف) نشان دهید $\alpha$ فرم بسته است
+	\footnote{فرم 
+	$\omega$، طبق تعریف، 
+	بسته (\lr{closed}) است اگر 
+	$\text{d}\omega = 0$.
+	}
+	.\\
+ب) انتگرال زیر را محاسبه کنید و بگویید چطور این پاسخ نشان می‌دهد که $\alpha$ کامل
+	\footnote{فرم 
+		$\omega$، طبق تعریف، 
+		کامل (\lr{exact}) است اگر فرم مرتبه پایین‌تری مثل 
+		$\xi$
+		موجود باشد که  
+		$\omega = \text{d}\xi$.
+	}
+	 نیست
+	 \footnote{انتگرال‌گیری روی کره‌ی واحد به مرکز مبدا مختصات صورت می‌گیرد.}
+	 .
+\begin{equation*}
+	\int_{S^2}^{} \alpha
+\end{equation*}
+
+\vspace{-2em}
+\endline
+
+	\textbf{سوال هشتم:}
+	قرار دهید
+	\begin{equation*}
+		\begin{aligned}
+			 H = \Bigl\{
+			\left( \begin{smallmatrix}
+			 	1 &‌x &y \\ 0&1&z \\ 0&0&1
+			 \end{smallmatrix} \right) \;\;\Big| \;\; x,y,z \in \mathbb{R}^3
+			 \Bigr\}.
+		\end{aligned}
+	\end{equation*}
+	
+	\noindent
+	الف) نشان دهید که $H$ ساختار یک خمینه‌ی هموار را دارد که با 
+	$\mathbb{R}^3$
+	دیفئومورفیک است.
+	
+	\noindent
+	ب) نشان دهید که $H$‌ با عمل ضرب ماتریسی یک گروه لی است. (به این گروه، گروه هایزنبرگ می‌گوییم.)
+	
+	\noindent
+	ج)نشان دهید که مجموعه‌ی 
+	$ L = \bigl\{
+	\frac{\partial}{\partial x} , \frac{\partial}{\partial y} , x\frac{\partial}{\partial y} + \frac{\partial}{\partial z}
+	\bigr\}$
+	پایه‌ای برای جبرلی 
+	$\mathfrak{h}$
+	(جبر لی گروه $H$) است.
+	
+	\vspace{-2em}
+	\endline
+\end{document}
+
+
+
+
