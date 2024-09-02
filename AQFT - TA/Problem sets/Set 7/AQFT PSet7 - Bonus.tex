@@ -1,0 +1,140 @@
+\documentclass[11pt]{article}
+\usepackage{physics,slashed}
+
+
+
+
+% NOTE: Add in the relevant information to the commands below; or, if you'll be using the same information frequently, add these commands at the top of paolo-pset.tex file. 
+\newcommand{\name}{TA: Hossein Mohammadi}
+\newcommand{\email}{hossein.mohammadi.00427@gmail.com}
+\newcommand{\classnum}{Advanced Quantum Field Theory}
+\newcommand{\subject}{Subject: Renormalization Group Equation of QED and $\phi^4$ theory}
+\newcommand{\instructors}{Dr. Amin Faraji}
+\newcommand{\assignment}{Bonus PSet}
+\newcommand{\semester}{- Fall 1402}
+\newcommand{\duedate}{dd/mm/yyyy}
+
+\input{paolo-pset.tex}
+
+% NOTE: To compile a version of this pset without problems, solutions, or reflections, uncomment the relevant line below.
+
+%\excludeversion{problem}
+%\excludeversion{solution}
+%\excludeversion{reflection}
+
+\begin{document}	
+	
+	% Use the \psetheader command at the beginning of a pset. 
+	\psetheader
+	
+	\section*{Problem 1: QED beta-function and Callen-Symanzik Equation}
+	
+	\begin{problem}
+		We have promised that renormalization has more significant physical consequences than just logarithmic dependence of amplitudes in different energy scales. Renormalization Group Equation (R.G.E.) is another physical result of renormalization.
+		
+		Renormalization group\footnote{This "group" has nothing to do with "group theory"!} refers to invariance of observables under the change in the way the amplitudes are calculated. As an instance, in Dimensional Regularization (D.R.),several amplitudes were $\mu-$ dependent, so R.G.E. should eliminate this dependence in the observables.
+		
+	\end{problem}
+	\begin{enumerate}
+		\item
+		\begin{problem}{\points{-}}
+			\textbf{The Running of the Coupling Constant:}
+			
+			Recall that where the $\mu-$factor dependence came from in the renormalized perturbation theory of QED, we added the arbitrary scale $\mu$ to render the coupling constant $e$ dimensionless. So it appeared in the following terms of the Lagrangian:
+			\[
+			\mathcal{L}_{int}^{R.P.T} = -\mu^{\frac{4-d}{2}} e_R Z_e Z_2\sqrt{Z_3} \bar{\psi}^R\slashed{A}^R \psi^R.
+			\]
+			And also remember from the former problem set that the counterterms in $e^2_R$ order were:
+			\[
+			\begin{pmatrix}
+				\delta_2 \\
+				\delta_3 \\
+				\delta_m \\
+				\delta_e
+			\end{pmatrix}
+			 = 
+			 \frac{e^2_R}{16\pi^2}
+			 \begin{pmatrix}
+			  \vspace{0.75 em}	-\frac{2}{\varepsilon} \\ \vspace{0.75 em}
+			 	-\frac{8}{3\varepsilon} \\ \vspace{0.75 em}
+			 	-\frac{6}{\varepsilon} \\ \vspace{0.75 em}
+			 	\frac{4}{3\varepsilon}
+			 \end{pmatrix}
+			\]
+			Use the $\mu-$independence of the bare charge $e$\footnote{$\mu\frac{d}{d\mu}e_0 = 0$}, then replace $e_0$ by $e_RZ_e$ to find the coupling of the renormalized charge $e_R$:
+			\begin{itemize}
+				\item At leading order.
+				
+				 (\textbf{Hint:} Reach to the following equation:
+				$
+				\mu\frac{d}{d\mu}e_R = -\frac{\varepsilon}{2}e_R 
+				$
+				)
+				\item Next to leading order.
+				
+				(\textbf{Hint:} Reach to the following equation:
+				$
+				\mu\frac{d}{d\mu}e_R = -\frac{\varepsilon}{2}e_R  + \frac{e^3_R}{12\pi^2}
+				$
+				)
+			\end{itemize}
+			\item 
+			\begin{problem}{\points{-}}
+				\textbf{The Running of the electron mass:}
+				
+			Find the R.G.E. for the electron mass by the same method.
+			
+			(\textbf{Hint:} Define $\gamma_m \equiv \frac{\mu}{m_R} \frac{dm_R}{d\mu}$, which is called "Anomalous dimension" conventionally.)
+		\end{problem}
+			
+			
+			\item 
+			\begin{problem}{\points{-}}
+				\textbf{R.G.E. for n-point Functions:}
+				
+				Consider the following Green-functions, comprising of $n$ photons and $m$ fermions in the bare theory:
+				\[
+				G_{n,m}^0 = \bra{\Omega} T\{
+				A_{\mu_1}^0 \dots A_{\mu_n}^0
+				\; 
+				\psi_1^0 \dots \psi_n^0
+				\}
+				\ket{\Omega}
+				\]
+				\begin{enumerate}
+					\item Find the relation between bare Green-function and the renormalized one, $G_{n,m}^R$.
+					\item Define $\gamma_i \equiv \frac{\mu}{Z_i} \frac{dZ_i}{d\mu}$ for $i=2,3$, then use R.G.E. to find the Callen-Symanzik equation:
+					\[
+					\big(
+					\mu \frac{\partial}{\partial \mu} + \frac{n}{2} \gamma_3 + \frac{m}{2}\gamma_2 + \beta \frac{\partial}{\partial e_R} + \gamma_m m_R \frac{\partial}{\partial m_R} 
+					\big) G_{n,m}^R =0
+					\]
+				\end{enumerate}
+			\end{problem}
+		\end{problem}
+	\end{enumerate}
+	
+	\newpage
+
+	\section*{Problem 2: $\phi^4$-theory R.G.E. }
+ 
+
+
+\begin{problem}
+	We have worked out the counterterms associated with $\phi^4$ theory at one-loop level (or $\lambda_R^2$ order.)
+	
+	For this problem, work out the R.G.E. for $m_R$ and $\lambda_R$ in this theory. Then find the running of these parameters with $\mu$ scale by solving the R.G.E. differential equation.
+	\end{problem}
+
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
