@@ -1,0 +1,110 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage{physics, amsmath, amsfonts, fixmath, geometry, tikz, pgf, multirow, hyperref, amsfonts,amssymb, mathtools, physics, xcolor, siunitx, subcaption,tcolorbox}
+
+
+\usepackage{graphicx}
+\usepackage{braket}
+\usepackage{enumitem,hyperref,dsfont}
+\usepackage[linewidth= 2pt]{mdframed}
+\usepackage{colortbl}
+\usepackage{xepersian}
+\setdigitfont{XB Niloofar}
+\settextfont[]{XB Niloofar}
+\deflatinfont\enfont[Scale=1]{Times New Roman}
+\newcommand{\pcur}[0]{\lr{Page curve}}
+\newcommand{\mycomment}[1]{}
+\title{\textbf{
+توضیحات مربوط به پکیج‌های مربوط به نظریه میدان کوانتومی در 
+\lr{Mathematica}
+}}
+\author{حسین محمدی
+\\}
+\newtcolorbox{boxes}[3][]
+{
+	colframe = #2!25,
+	colback  = #2!10,
+	coltitle = #2!40!black,  
+	title    = {\textbf{#3}},
+	#1,
+}
+
+\begin{document}
+\maketitle
+
+سلام.
+
+در این فایل به طور خلاصه روندی را که برای ارائه در ذهن داشتم و همچنین فایل‌هایی را پیوست شده‌اند، توضیح می‌دهم.
+
+من هفت جلسه‌ در نظر داشتم که حدود ۸ تا ۹ ساعتی طول می‌کشید. 
+\begin{enumerate}
+	\item 
+	درجلسه‌ی اول مقدماتی برای کار با متمتیکا، معرفی پکیج‌ها، نصبشان و مثال‌های کمینه را معرفی می‌کردم.
+	
+	\item 
+	جلسه‌ی دوم و سوم به بررسی هسته‌ی اصلیِ کار یعنی مقدماتِ 
+	\lr{FeynCalc}
+	می‌پرداخت. از چاربردارها گرفته تا اسپینورها و همچنین جبرهای 
+	$SU(N)$
+	برای نظریه میدان‌های غیرجابه‌جایی.
+	
+	\item 
+	جلسه‌ی چهارم به 
+	\lr{FeynArts}
+	و ترسیم دیاگرام‌ها با مرتبه‌ی دلخواه جفتیدگی و همچنین نظریه میدان اختلالی می‌پرداخت.
+	
+	\item 
+	جلسه‌ی پنجم به بررسی 
+	\lr{FeynRules}
+	می‌پرداخت؛ این‌که چطور از لاگرانژی به قوانین فاینمن برسیم. 
+	
+	\item 
+	جلسات ششم و هفتم (و حتی هشتم!) به بررسی مدل‌های نظریه‌میدان و بازبهنجارششان می‌پرداخت.
+	از 
+	$\phi^3$
+	گرفته تا نظریه‌های پیمانه‌ای  و 
+	\lr{Electroweak}.
+	این قسمت‌ها مقدار زیادی تکنیکی هستند و اگر نتوانیم با فهم درست از ماژول‌های مختلف 
+	\lr{FeynCalc}
+	استفاده کنیم؛ تقریبا نتیجه‌ای حاصل نمی‌شود.
+\end{enumerate}
+
+
+\begin{mdframed}
+	پروژه‌ی نهایی هم پیاده‌سازی کامل و بازبهنجارش یک 
+	\lr{MSSM}
+	\LTRfootnote{Minimal Super symmetric Standard Model}
+	مختلط بود.  می‌توانستند بازبهنجارش دوحلقه‌ی این مدل را هم ببینید.
+\end{mdframed}
+
+
+حالا فایل‌ها را به ترتیب توضیح دهم.
+\begin{itemize}
+	\item 
+	فایل مقدمه که شامل توضیحات و نحوه‌ی نصب و مثال کمینه است به فرمت 
+	\lr{nb}
+	یعنی به فرمت دفترچه یادداشت‌های متمتیکا است.
+	\item 
+	فایل جلسات دوم و سوم یک 
+	\lr{Tutorial}
+	مقدماتی است که تمامی مباحث اساسی 
+	\lr{FeynCalc}
+	را توضیح می‌دهد. یادم هست که خودم بازبهنجارش فروسرخ مربوط به دیاگرام‌های درختی پراکندگی الکترون-پوزیترون را با کمک دستورهای این فایل  انجام دادم.
+	
+	\item جلسه‌ی چهارم و پنجم هم فایل 
+	\lr{Documentation}
+	پکیج
+	\lr{FeynArts}
+	و
+	\lr{FeynRules}
+	است؛ به نظرم این فایل خیلی مناسب و خوب مثال‌های اساسی را توضیح داده. اگر قرار باشد در آینده در این مورد ارائه‌ای بدهم، همین را دستور کار قررا می‌دهم.
+	\item 
+	فایل جلسات آخر، شامل تمامی مثالهاست. تئوری‌های 
+	$\phi^3$
+	و
+	$\phi^4$
+	و $QED$ و $QCD$ و همچنین الکتروضعیف را دربرمی‌گیرد. برای هر کدام دیاگرام‌های درختی، تک‌حلقه و دوحلقه و بازبهنجارشش هست.
+	چیزی که مهم است این است که پکیج‌ها به درستی بارگذاری شوند و همچنین دستورها به ترتیب اجرا شوند.
+\end{itemize} 
+
+
+\end{document}

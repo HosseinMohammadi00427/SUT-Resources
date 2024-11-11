@@ -1,0 +1,631 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     25095,        623]
+NotebookOptionsPosition[     21214,        553]
+NotebookOutlinePosition[     21650,        570]
+CellTagsIndexPosition[     21607,        567]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Session I - Introduction", "Title",
+ CellChangeTimes->{{3.9368599164720387`*^9, 
+  3.9368599209119473`*^9}},ExpressionUUID->"99879d2f-9bd0-4239-87ff-\
+dea9aebf171d"],
+
+Cell[CellGroupData[{
+
+Cell["Purpose on this session", "Section",
+ CellChangeTimes->{{3.9368611581893263`*^9, 
+  3.9368611625904703`*^9}},ExpressionUUID->"ee94be46-5ec5-499b-a52d-\
+ee964482551a"],
+
+Cell["\<\
+We aim to:
+\t1. Introduce core packages, and provide their documentation, and official \
+websites.
+\t2. Install and integrate them.
+\t3. Basic routines in recalling packages.
+\t4. Showcasing their abilities.\
+\>", "Text",
+ CellChangeTimes->{{3.9368611689858823`*^9, 3.9368612447772436`*^9}, {
+  3.9368649159702454`*^9, 
+  3.936864923884673*^9}},ExpressionUUID->"d660f01e-52a9-4a10-8a74-\
+e0cc2e5a919d"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Get Familiar with Zoo of Mathematica Packages to do QFT", "Section",
+ CellChangeTimes->{{3.9368602717443113`*^9, 
+  3.936860286471311*^9}},ExpressionUUID->"e51e2f7f-ba13-411a-aca7-\
+9564b2bbdde6"],
+
+Cell[TextData[{
+ "Hi, Hope you are doing well. I decided to gather my computational \
+knowledge, and design a mini - course on teaching computational tools in \
+Mathematica. We are going to superficially touch these packages.\n\t",
+ StyleBox["FeynCalc (Associated modules like FormCalc, LoopTools, \
+FeynHelpers, and FIRE.)\n\tFeynArts\n\tFeynRules\n\tFeynGrav\n\t\
+tree_amplitudes\n",
+  FontWeight->"Bold"],
+ "A suitable approach to learning these topics is to focus on specific tasks \
+or calculations, like computing amplitudes, divergences, physical quantities, \
+and renormalization, otherwise we will be lost in the documentations and \
+instructions ...\n\nLet me also mention another strong package in general \
+relativity, ",
+ StyleBox["xAct",
+  FontWeight->"Bold"],
+ ". This package is formidably strong in formal calculations and perturbative \
+analysis of models. It consists of various modules that enables Mathematica \
+to accomplish almost every task! Refer to  ",
+ ButtonBox["http://www.xact.es/",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.xact.es/"], None},
+  ButtonNote->"http://www.xact.es/"],
+ " to learn more.\nAlso SciSchool has held ",
+ ButtonBox["two schools",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://scischool.ir/courses/"], None},
+  ButtonNote->"https://scischool.ir/courses/"],
+ " on xAct, which I strongly suggest to cosmology and hep students to attend. \
+It\[CloseCurlyQuote]s pretty remarkable that our scientific discipline is \
+becoming more and more dependent of computational tools, look ",
+ ButtonBox["this page",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://josmar493.dreamhosters.com/articles.html"], None},
+  ButtonNote->"https://josmar493.dreamhosters.com/articles.html"],
+ " to observe this trend during last decade. Every physicist should learn and \
+used computational tool, at least at some stage.\n\nThe above packages were \
+developed by scientists around the world for various purposes. Some of them \
+are used in \[OpenCurlyDoubleQuote]Scattering Amplitude\
+\[CloseCurlyDoubleQuote] research (like ",
+ StyleBox["tree_amplitude",
+  FontSlant->"Italic"],
+ "), in quantum gravity computations (",
+ StyleBox["FeynGrav",
+  FontSlant->"Italic"],
+ "), and others are generally combined to address attack computational \
+problems in QFT.\n\nWe specifically pursue general routines, like drawing \
+digrams, calculating amplitudes, regularizing and renormalizing familiar \
+theories.\nWe won\[CloseCurlyQuote]t focus on FeynGrav and tree_Ampliudes \
+here, since they have been developed for advanced purposes."
+}], "Text",
+ CellChangeTimes->{{3.9368599243969903`*^9, 3.9368601947257533`*^9}, {
+   3.9368602939738636`*^9, 3.9368605257631664`*^9}, {3.9368605588531785`*^9, 
+   3.9368607070941334`*^9}, 3.936860805360178*^9, {3.9368608410669603`*^9, 
+   3.9368610022003045`*^9}, {3.936861043421579*^9, 3.9368611443496466`*^9}, {
+   3.9368612778881207`*^9, 3.9368612811748514`*^9}, {3.9368614733761826`*^9, 
+   3.9368616196058903`*^9}, {3.9368647604157434`*^9, 
+   3.9368647653124886`*^9}},ExpressionUUID->"914017db-5e1c-4348-bf4c-\
+9196247189c1"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Introducing Packages", "Section",
+ CellChangeTimes->{{3.9368613105417542`*^9, 
+  3.9368613130554934`*^9}},ExpressionUUID->"2ad67bf3-daff-4874-a737-\
+3d0ee34382cd"],
+
+Cell[CellGroupData[{
+
+Cell["FeynCalc", "Subsection",
+ CellChangeTimes->{{3.936861354728478*^9, 3.9368613567906885`*^9}, {
+  3.936861400073022*^9, 
+  3.936861400795427*^9}},ExpressionUUID->"439ca4a1-26fd-4a3d-aa97-\
+03050961a19d"],
+
+Cell[TextData[{
+ "This is the core package for starting our work.\nFeynCalc is a Mathematica \
+package for symbolic evaluation of Feynman diagrams and algebraic \
+calculations in quantum field theory and elementary particle physics.\nSome \
+features of FeynCalc are:\n\tMulti loop topology identification and \
+calculation\n\tTools for frequently occurring tasks like Lorentz index \
+contraction, color factor calculation, Dirac matrix manipulation and traces, \
+etc.\n\tTensor and Dirac algebra manipulations (including traces) in 4 or D \
+dimensions\n\tGeneration of Feynman rules from a Lagrangian\n\tSU(N) algebra\n\
+\tTables of integrals, convolutions and Feynman rules\n\tSpecial convolution, \
+Mellin transform and other integral tables\n\t\nSee \
+FeynCalc\[CloseCurlyQuote]s ",
+ ButtonBox["Official Website",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://www.feyncalc.org/"], None},
+  ButtonNote->"http://www.feyncalc.org/"],
+ ", ",
+ ButtonBox["Last version's publication",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2312.14089"], None},
+  ButtonNote->"https://arxiv.org/abs/2312.14089"],
+ ".\n"
+}], "Text",
+ CellChangeTimes->{{3.936861371001501*^9, 3.936861424393058*^9}, {
+  3.936861652326708*^9, 3.936861668149973*^9}, {3.936861754834066*^9, 
+  3.936861943521474*^9}},ExpressionUUID->"b50a0b17-16ee-4775-be07-\
+c404bbd7f1b0"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Modules of FeynCalc", "Subsection",
+ CellChangeTimes->{{3.936861980869046*^9, 
+  3.936862001542976*^9}},ExpressionUUID->"ec99c7e5-5153-4d51-ab55-\
+4cf41b544d6e"],
+
+Cell[TextData[{
+ "FeynCalc is versatile and strong enough, but its power could be extended \
+with modules like ",
+ StyleBox["FormCalc, LoopTools, FeynHelpers, and FIRE.\n",
+  FontWeight->"Bold"],
+ "They are machine level codes that accelerate the slowest parts of \
+Mathematica, enhance it and take it to another level! Let us see them one by \
+one.\n\n",
+ StyleBox["FormCalc: ",
+  FontWeight->"Bold"],
+ "It is a Mathematica package for the calculation of tree-level and one-loop \
+Feynman diagrams. It reads diagrams generated with ",
+ StyleBox["FeynArts",
+  FontSlant->"Italic"],
+ " and returns the results in a way well suited for further numerical and \
+analytical evaluation. FormCalc can in fact write out a complete Fortran (or \
+C) subroutine to compute the squared matrix element for a given process. \n",
+ ButtonBox["Official Website ",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://feynarts.de/formcalc/"], None},
+  ButtonNote->"https://feynarts.de/formcalc/"],
+ "/ ",
+ ButtonBox["Recent release's publication.",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/1604.04611"], None},
+  ButtonNote->"https://arxiv.org/abs/1604.04611"],
+ "\n",
+ StyleBox["\nLoopTools: ",
+  FontWeight->"Bold"],
+ "LoopTools is a package for evaluation of scalar and tensor one-loop \
+integrals. It features an easy Fortran, C++, and Mathematica interface to the \
+scalar one-loop functions of FF and in addition provides the 2-, 3-, and \
+4-point tensor coefficient functions.",
+ StyleBox["\n",
+  FontWeight->"Bold"],
+ ButtonBox["Official Website",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://feynarts.de/looptools/"], None},
+  ButtonNote->"https://feynarts.de/looptools/"],
+ " / ",
+ ButtonBox["Release's Publication.\n",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/hep-ph/9807565"], None},
+  ButtonNote->"https://arxiv.org/abs/hep-ph/9807565"],
+ StyleBox["\nFeynHelpers: ",
+  FontWeight->"Bold"],
+ "FeynHelpers is a collection of interfaces that allow you to use other \
+HEP-related tools from your FeynCalc session.",
+ StyleBox["\n",
+  FontWeight->"Bold"],
+ StyleBox[ButtonBox["Official Github",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://github.com/FeynCalc/feynhelpers?tab=readme-ov-file"], None},
+  ButtonNote->"https://github.com/FeynCalc/feynhelpers?tab=readme-ov-file"],
+  FontWeight->"Bold"],
+ " / ",
+ ButtonBox["Release's Publication.",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/1611.06793"], None},
+  ButtonNote->"https://arxiv.org/abs/1611.06793"],
+ "\n",
+ StyleBox["\nFIRE: ",
+  FontWeight->"Bold"],
+ "A general-purpose tool for reduction of multi-loop scalar integrals using \
+Integration-by-Parts (IBP) identities.",
+ StyleBox["\n",
+  FontWeight->"Bold"],
+ ButtonBox["Official Bitbucket repository ",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://bitbucket.org/feynmanIntegrals/fire/src/master/"], None},
+  ButtonNote->"https://bitbucket.org/feynmanIntegrals/fire/src/master/"],
+ "/ ",
+ ButtonBox["FIRE6 release's publication",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/pdf/1901.07808"], None},
+  ButtonNote->"https://arxiv.org/pdf/1901.07808"],
+ ".\n\nThere are also older package like ",
+ StyleBox["Package-X, FF, etc ... \:200c",
+  FontWeight->"Bold"],
+ "that now are outdated."
+}], "Text",
+ CellChangeTimes->{{3.9368620478715305`*^9, 3.9368620770607657`*^9}, {
+  3.9368621081954536`*^9, 3.9368622137122684`*^9}, {3.936862286488984*^9, 
+  3.936862417872263*^9}, {3.936862450248059*^9, 3.9368624890373683`*^9}, {
+  3.936862883748083*^9, 3.936862980921836*^9}, {3.936863046308816*^9, 
+  3.9368630581807966`*^9}, {3.936863108096055*^9, 
+  3.9368632525462484`*^9}},ExpressionUUID->"20bcefaf-8915-42ee-91ff-\
+718518702e73"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["FeynArts (Usage: Drawing Diagrams)", "Subsection",
+ CellChangeTimes->{{3.936862004985084*^9, 3.936862011478842*^9}, {
+  3.9368646453029957`*^9, 
+  3.9368646686850667`*^9}},ExpressionUUID->"53c16113-b7e8-43cd-9f48-\
+f0f94d1942ef"],
+
+Cell[TextData[{
+ "FeynArts is a Mathematica package for the generation and visualization of \
+Feynman diagrams and amplitudes. Its main features are:\n\n\tThe generation \
+of diagrams is possible at three levels: generic fields, classes of fields, \
+or specific particles.\n\tIn addition to ordinary diagrams, FeynArts can \
+generate counter-term diagrams and diagrams with placeholders for \
+one-particle irreducible vertex functions   (skeleton diagrams).\n\t\
+Restrictions of the type \[OpenCurlyDoubleQuote]field X is not allowed in \
+loops\[CloseCurlyDoubleQuote] can be applied. This is necessary e.g. for the \
+background-field formulation of a field theory.\n\tMixing propagators, such \
+as appear in non-R\[Xi]-gauges, are supported.\n\tFeynArts produces \
+publication-quality Feynman diagrams in PostScript or LaTeX in a format that \
+allows easy customization.\n\nLook at ",
+ ButtonBox["official website",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://feynarts.de/"], None},
+  ButtonNote->"https://feynarts.de/"],
+ " and ",
+ ButtonBox["release publication",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/hep-ph/0012260"], None},
+  ButtonNote->"https://arxiv.org/abs/hep-ph/0012260"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.9368633811989985`*^9, 3.936863381201499*^9}, {
+  3.936863553654315*^9, 3.9368635563971004`*^9}, {3.9368638507738466`*^9, 
+  3.936863909995189*^9}, {3.936864011354967*^9, 
+  3.9368640409064927`*^9}},ExpressionUUID->"3cf84fd1-0ae6-49ca-94b0-\
+50e755251b85"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["\<\
+FeynRules (Usage: Extracting Feynman Rules in Momentum Space)\
+\>", "Subsection",
+ CellChangeTimes->{{3.9368620132663527`*^9, 3.936862017108687*^9}, {
+  3.9368646314115334`*^9, 3.936864642895849*^9}, {3.937049047122804*^9, 
+  3.9370490482962046`*^9}},ExpressionUUID->"bb124c8f-e723-41f2-8625-\
+c35643ad5a56"],
+
+Cell[TextData[{
+ "FeynRules is a Mathematica package that allows the calculation of Feynman \
+rules in momentum space for any QFT physics model. The user needs to provide \
+FeynRules with the minimal information required to describe the new model, \
+contained in the so-called model-file. This information is then used to \
+calculate the set of Feynman rules associated with the Lagrangian.\nLook at ",
+ Cell[BoxData[
+  FormBox[
+   ButtonBox[
+    RowBox[{"official", " ", "website"}],
+    BaseStyle->"Hyperlink",
+    ButtonData->{
+      URL["https://feynrules.irmp.ucl.ac.be/"], None},
+    ButtonNote->"https://feynrules.irmp.ucl.ac.be/"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "5b09ebe2-aa64-4fa9-844f-f8f9b949340e"],
+ " and",
+ Cell[BoxData[
+  FormBox[
+   ButtonBox[
+    RowBox[{" ", 
+     RowBox[{"release", " ", 
+      RowBox[{"publication", "."}]}]}],
+    BaseStyle->"Hyperlink",
+    ButtonData->{
+      URL["https://arxiv.org/abs/1310.1921"], None},
+    ButtonNote->"https://arxiv.org/abs/1310.1921"], TraditionalForm]],
+  FormatType->"TraditionalForm",ExpressionUUID->
+  "d0ca95ce-fc0a-4401-942f-e59dbebf91ef"]
+}], "Text",
+ CellChangeTimes->{{3.936864238361436*^9, 
+  3.9368642874790697`*^9}},ExpressionUUID->"f194e358-cbae-41c9-acd8-\
+80d5e6e24734"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell[" FeynGrav (Usage: QFT approach to quantum gravity)", "Subsection",
+ CellChangeTimes->{{3.9368620200688114`*^9, 3.9368620229287367`*^9}, {
+  3.9368645244026737`*^9, 
+  3.9368645691852603`*^9}},ExpressionUUID->"c647bef7-9a37-4357-b050-\
+71086c453284"],
+
+Cell[TextData[{
+ "FeynGrav is a package designed to extend FeynCalc\[CloseCurlyQuote]s \
+capabilities to handle calculations involving gravitons.\nLook at its \
+associated ",
+ ButtonBox["GitHub repository",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://github.com/BorisNLatosh/FeynGrav"], None},
+  ButtonNote->"https://github.com/BorisNLatosh/FeynGrav"],
+ " and ",
+ ButtonBox["documentation",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2406.14872"], None},
+  ButtonNote->"https://arxiv.org/abs/2406.14872"],
+ "."
+}], "Text",
+ CellChangeTimes->{{3.9368643298690543`*^9, 
+  3.9368643699018445`*^9}},ExpressionUUID->"2aeffc96-a1ac-47df-9e9c-\
+b314bc6b2fbd"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["tree_Amplitudes (Usage: Scattering Amplitude.)", "Subsection",
+ CellChangeTimes->{{3.9368620244402394`*^9, 3.9368620398390617`*^9}, {
+  3.9368645124867916`*^9, 3.9368645226944523`*^9}, {3.9368645594927626`*^9, 
+  3.936864562679518*^9}},ExpressionUUID->"40e27d04-807f-4cdb-8725-\
+f4ee867e3489"],
+
+Cell[TextData[{
+ "Public, self-contained, and versatile computational tools\nfor the \
+investigation, manipulation, and evaluation of tree-level amplitudes in pure\n\
+(super)Yang-Mills and (super)Gravity, \[CurlyPhi]^p-scalar field theory, and \
+various other theories related to these through the double-copy.\nThe package \
+brings together a diverse set of frameworks for representing amplitudes, from \
+twistor string theory and scattering equations, to KLT and the doublecopy, to \
+on-shell recursion and the (oriented) positroid geometry of the \
+amplituhedron.\nIn addition to checking agreement across frameworks, we have \
+made it easy to testmany of the non-trivial relations satisfied by \
+amplitudes, their components and building blocks, including: Ward identities, \
+KK and BCJ relations, soft theorems, and the E_7(7) structure of maximal \
+supergravity.\nLook at ",
+ ButtonBox["the associated publication",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://arxiv.org/abs/2312.17745"], None},
+  ButtonNote->"https://arxiv.org/abs/2312.17745"],
+ " and the ancillary files within.\n"
+}], "Text",
+ CellChangeTimes->{{3.936864466921103*^9, 3.9368645110216923`*^9}, {
+  3.936864588591793*^9, 
+  3.9368646222649403`*^9}},ExpressionUUID->"65b8003b-8e5d-41d3-9236-\
+d2b7daef73aa"]
+}, Closed]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Package installation", "Section",
+ CellChangeTimes->{{3.936864164156769*^9, 
+  3.93686416780271*^9}},ExpressionUUID->"8ef79dfc-9234-4f1f-a7ad-\
+7b7ad893c108"],
+
+Cell["\<\
+Some packages could be installed automatically, via online resources. To \
+install FeynCalc and FeynHelpers, use the following codes.\
+\>", "Text",
+ CellChangeTimes->{{3.937048583545282*^9, 
+  3.9370486142481685`*^9}},ExpressionUUID->"89a5e8e0-bfd4-4ad9-9cbc-\
+b414188cdb7c"],
+
+Cell[BoxData[{
+ RowBox[{"Import", "[", 
+  "\"\<https://raw.githubusercontent.com/FeynCalc/feyncalc/master/install.m\>\
+\"", "]"}], "\n", 
+ RowBox[{"InstallFeynCalc", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.937048626352584*^9, 
+  3.937048626355195*^9}},ExpressionUUID->"3cb723b9-1b1c-4288-b434-\
+3a033ef5f0f8"],
+
+Cell[BoxData[{
+ RowBox[{"Import", "[", 
+  "\"\<https://raw.githubusercontent.com/FeynCalc/feynhelpers/master/install.\
+m\>\"", "]"}], "\n", 
+ RowBox[{"InstallFeynHelpers", "[", "]"}]}], "Input",
+ CellChangeTimes->{{3.937048631434571*^9, 
+  3.9370486314360776`*^9}},ExpressionUUID->"f25747e3-bb18-40fb-a82a-\
+d39dda82227b"],
+
+Cell["\<\
+Others have to be installed manually, and specifying the path of the package \
+in the built-in PATH of Mathematica. Here is an instruction to install \
+packages manually.\
+\>", "Text",
+ CellChangeTimes->{{3.9370486649956646`*^9, 3.9370486940152245`*^9}, {
+  3.9370487445496616`*^9, 
+  3.9370487565224047`*^9}},ExpressionUUID->"30268fe0-756a-43e3-9f19-\
+8ee1c913982a"],
+
+Cell["\<\
+How to install packages on Mathematica manually?
+\t\[Bullet] First download the package, unzip it and remove any version from \
+the file' s name.\"FeynCalc9.0\" to \"FeynCalc\" so as not to have problem \
+when calling it with << command.
+\t\[Bullet] Find base directory of Mathematica by evaluating this code on a \
+notebook : \t\
+\>", "Text",
+ CellChangeTimes->{{3.9370487612665515`*^9, 
+  3.93704885852645*^9}},ExpressionUUID->"c948ffdb-9134-47e2-b593-\
+82792db1cff2"],
+
+Cell[BoxData[
+ RowBox[{"SystemOpen", "[", "$UserBaseDirectory", "]"}]], "Input",
+ CellChangeTimes->{{3.9370488341594296`*^9, 3.9370488341668158`*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"0da60946-a3ed-471a-9e6f-44b72757e2de"],
+
+Cell["\<\
+\[Bullet] Go to $UserBaseDirectory/Applications/and paste the package folder \
+there.
+\[Bullet] Load package with : \
+\>", "Text",
+ CellChangeTimes->{{3.9370488615539927`*^9, 
+  3.9370488845732346`*^9}},ExpressionUUID->"1a3761b8-53f6-4510-98ff-\
+22442314d824"],
+
+Cell[BoxData[
+ RowBox[{"<<", " ", "packageName`"}]], "Input",
+ CellChangeTimes->{{3.937048879721994*^9, 
+  3.9370488797305574`*^9}},ExpressionUUID->"36f091fc-3a03-4556-b774-\
+ace08dec94b2"],
+
+Cell["\<\
+\tOccasionally you might need to add the package' s address to the \
+Mathematica PATH : \
+\>", "Text",
+ CellChangeTimes->{{3.9370488864168577`*^9, 
+  3.9370488958704195`*^9}},ExpressionUUID->"a02b3ab7-807c-41a6-ac6e-\
+f95f8f5e4b92"],
+
+Cell[BoxData[
+ RowBox[{"AppendTo", "[", 
+  RowBox[{
+  "$Path", ",", " ", 
+   "\"\<C:\\\\Users\\\\YourUsername\\\\Documents\\\\Mathematica\\\\Packages\\\
+\\FeynArts\>\""}], "]"}]], "Input",
+ CellChangeTimes->{{3.9370488922872157`*^9, 
+  3.9370488922952857`*^9}},ExpressionUUID->"0a76a3e8-45b9-45e6-aeac-\
+e8827ea81edd"],
+
+Cell["\<\
+\[Bullet]  Surely, you have to go to the package folder and copy the address \
+by Ctrl + Shift + C.
+\[Bullet]  Suppress package loading errors (when variables overlap, \
+especially in Feyn packages.)\
+\>", "Text",
+ CellChangeTimes->{{3.9370488979571157`*^9, 
+  3.937048919690445*^9}},ExpressionUUID->"1d6a9f47-8601-4fb9-aaed-\
+87919d2dd04b"],
+
+Cell[BoxData[
+ RowBox[{"\t", 
+  RowBox[{"Quiet", "[", 
+   RowBox[{"<<", " ", "PackageName`"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9370489183640456`*^9, 
+  3.9370489183734035`*^9}},ExpressionUUID->"ded630bc-7911-48ea-b4bb-\
+0a66b72b4f9d"],
+
+Cell["\<\
+Note on loading modules of FeynCalc: Always load modules like this\
+\>", "Text",
+ CellChangeTimes->{{3.9370489761325407`*^9, 
+  3.937048995241304*^9}},ExpressionUUID->"6ea22d89-1603-4ec0-9dde-\
+d54df9358602"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"$LoadAddOns", "=", 
+   RowBox[{"{", "\"\<FeynHelpers\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"<<", "FeynCalc`"}]}], "Input",ExpressionUUID->"2b8c4f6c-6840-4df0-\
+acf7-db9b124b468c"],
+
+Cell["Don\[CloseCurlyQuote]t load them one by one, which will cause a gentle \
+error.", "Text",
+ CellChangeTimes->{{3.9370489994414306`*^9, 
+  3.9370490124636106`*^9}},ExpressionUUID->"6839bc24-a4f0-4755-89f5-\
+144aad43a1ae"]
+}, Closed]]
+}, Open  ]]
+},
+WindowSize->{1152., 579.6},
+WindowMargins->{{
+  Automatic, -5.399999999999864}, {-5.399999999999977, Automatic}},
+FrontEndVersion->"12.1 for Microsoft Windows (64-bit) (June 9, 2020)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"3a8394ce-c0bd-4be7-9258-73f16611e86e"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 171, 3, 97, "Title",ExpressionUUID->"99879d2f-9bd0-4239-87ff-dea9aebf171d"],
+Cell[CellGroupData[{
+Cell[776, 29, 172, 3, 67, "Section",ExpressionUUID->"ee94be46-5ec5-499b-a52d-ee964482551a"],
+Cell[951, 34, 412, 11, 127, "Text",ExpressionUUID->"d660f01e-52a9-4a10-8a74-e0cc2e5a919d"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[1400, 50, 202, 3, 53, "Section",ExpressionUUID->"e51e2f7f-ba13-411a-aca7-9564b2bbdde6"],
+Cell[1605, 55, 3133, 60, 495, "Text",ExpressionUUID->"914017db-5e1c-4348-bf4c-9196247189c1"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[4775, 120, 169, 3, 53, "Section",ExpressionUUID->"2ad67bf3-daff-4874-a737-3d0ee34382cd"],
+Cell[CellGroupData[{
+Cell[4969, 127, 207, 4, 54, "Subsection",ExpressionUUID->"439ca4a1-26fd-4a3d-aa97-03050961a19d"],
+Cell[5179, 133, 1378, 28, 334, "Text",ExpressionUUID->"b50a0b17-16ee-4775-be07-c404bbd7f1b0"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[6594, 166, 167, 3, 38, "Subsection",ExpressionUUID->"ec99c7e5-5153-4d51-ab55-4cf41b544d6e"],
+Cell[6764, 171, 3794, 95, 449, "Text",ExpressionUUID->"20bcefaf-8915-42ee-91ff-718518702e73"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[10595, 271, 235, 4, 38, "Subsection",ExpressionUUID->"53c16113-b7e8-43cd-9f48-f0f94d1942ef"],
+Cell[10833, 277, 1529, 30, 242, "Text",ExpressionUUID->"3cf84fd1-0ae6-49ca-94b0-50e755251b85"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[12399, 312, 318, 6, 38, "Subsection",ExpressionUUID->"bb124c8f-e723-41f2-8625-c35643ad5a56"],
+Cell[12720, 320, 1288, 32, 104, "Text",ExpressionUUID->"f194e358-cbae-41c9-acd8-80d5e6e24734"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[14045, 357, 255, 4, 38, "Subsection",ExpressionUUID->"c647bef7-9a37-4357-b050-71086c453284"],
+Cell[14303, 363, 697, 19, 58, "Text",ExpressionUUID->"2aeffc96-a1ac-47df-9e9c-b314bc6b2fbd"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[15037, 387, 299, 4, 38, "Subsection",ExpressionUUID->"40e27d04-807f-4cdb-8725-f4ee867e3489"],
+Cell[15339, 393, 1295, 23, 219, "Text",ExpressionUUID->"65b8003b-8e5d-41d3-9236-d2b7daef73aa"]
+}, Closed]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[16683, 422, 164, 3, 53, "Section",ExpressionUUID->"8ef79dfc-9234-4f1f-a7ad-7b7ad893c108"],
+Cell[16850, 427, 285, 6, 35, "Text",ExpressionUUID->"89a5e8e0-bfd4-4ad9-9cbc-b414188cdb7c"],
+Cell[17138, 435, 314, 7, 49, "Input",ExpressionUUID->"3cb723b9-1b1c-4288-b434-3a033ef5f0f8"],
+Cell[17455, 444, 322, 7, 49, "Input",ExpressionUUID->"f25747e3-bb18-40fb-a82a-d39dda82227b"],
+Cell[17780, 453, 377, 8, 35, "Text",ExpressionUUID->"30268fe0-756a-43e3-9f19-8ee1c913982a"],
+Cell[18160, 463, 480, 10, 104, "Text",ExpressionUUID->"c948ffdb-9134-47e2-b593-82792db1cff2"],
+Cell[18643, 475, 228, 3, 28, "Input",ExpressionUUID->"0da60946-a3ed-471a-9e6f-44b72757e2de"],
+Cell[18874, 480, 270, 7, 58, "Text",ExpressionUUID->"1a3761b8-53f6-4510-98ff-22442314d824"],
+Cell[19147, 489, 189, 4, 28, "Input",ExpressionUUID->"36f091fc-3a03-4556-b774-ace08dec94b2"],
+Cell[19339, 495, 242, 6, 35, "Text",ExpressionUUID->"a02b3ab7-807c-41a6-ac6e-f95f8f5e4b92"],
+Cell[19584, 503, 318, 8, 28, "Input",ExpressionUUID->"0a76a3e8-45b9-45e6-aeac-e8827ea81edd"],
+Cell[19905, 513, 351, 8, 58, "Text",ExpressionUUID->"1d6a9f47-8601-4fb9-aaed-87919d2dd04b"],
+Cell[20259, 523, 243, 6, 28, "Input",ExpressionUUID->"ded630bc-7911-48ea-b4bb-0a66b72b4f9d"],
+Cell[20505, 531, 218, 5, 35, "Text",ExpressionUUID->"6ea22d89-1603-4ec0-9dde-d54df9358602"],
+Cell[20726, 538, 232, 5, 49, "Input",ExpressionUUID->"2b8c4f6c-6840-4df0-acf7-db9b124b468c"],
+Cell[20961, 545, 225, 4, 35, "Text",ExpressionUUID->"6839bc24-a4f0-4755-89f5-144aad43a1ae"]
+}, Closed]]
+}, Open  ]]
+}
+]
+*)
+
